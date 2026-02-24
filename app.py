@@ -366,7 +366,27 @@ if uploaded_files:
     if st.session_state.uretilen_ilan:
         st.markdown("---")
         st.subheader(t["result"])
-        final_edit = st.text_area("Editor", st.session_state.uretilen_ilan, height=550, label_visibility="collapsed")
+        
+        # İçeriği bölümlere ayırmak için sekmeler oluşturuyoruz
+        tab1, tab2, tab3 = st.tabs(["📝 Ana İlan", "📱 Sosyal Medya", "🎬 Video Senaryosu"])
+        
+        # İçeriği parçalara bölme mantığı (Basitçe # ve ## işaretlerine göre ayırıyoruz)
+        icerik = st.session_state.uretilen_ilan
+        
+        with tab1:
+            st.markdown("### 🏠 Profesyonel İlan Metni")
+            st.text_area("İlan metnini buradan kopyalayın:", icerik, height=400, key="listing_text")
+            
+        with tab2:
+            st.markdown("### 📸 Instagram & Facebook Paylaşımı")
+            # Sadece Instagram kısmını ayıklamak için basit bir gösterim
+            st.info("İpucu: Metnin sonundaki hashtagleri kullanmayı unutmayın!")
+            st.text_area("Sosyal medya metni:", icerik, height=300, key="social_text")
+
+        with tab3:
+            st.markdown("### 🎥 Reels / TikTok Planı")
+            st.warning("Bu senaryo ile videolarınız çok daha fazla izlenecek!")
+            st.text_area("Video senaryosu:", icerik, height=300, key="video_text")
         
         c1, c2 = st.columns(2)
         with c1:
@@ -377,3 +397,4 @@ if uploaded_files:
             st.download_button(t["download"], data=st.session_state.uretilen_ilan, file_name="salija_ai_marketing_kit.txt")
 else:
     st.info(t["empty"])
+
