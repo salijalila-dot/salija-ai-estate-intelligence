@@ -4,7 +4,8 @@ import google.generativeai as genai
 import os
 
 # --- AI YAPILANDIRMASI ---
-GOOGLE_API_KEY = "AIzaSyDEedLKB6g6pLQ43jI-ihDboLKva8fgEJg"
+# API Anahtarını sistemden gizli olarak alıyoruz
+GOOGLE_API_KEY = st.secrets["GEMINI_API_KEY"]
 genai.configure(api_key=GOOGLE_API_KEY)
 MODEL_NAME = 'gemini-2.0-flash' 
 model = genai.GenerativeModel(MODEL_NAME)
@@ -201,4 +202,5 @@ if uploaded_files:
         with c2:
             st.download_button(t["download"], data=st.session_state.uretilen_ilan, file_name="salija_ai_listing.txt")
 else:
+
     st.info(t["empty"])
