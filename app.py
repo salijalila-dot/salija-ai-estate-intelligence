@@ -18,842 +18,215 @@ def load_logo(file_path):
     if os.path.exists(file_path): return Image.open(file_path)
     return None
 
- # --- GLOBAL DİL SİSTEMİ ---
-
-
-
+# --- GLOBAL DİL SİSTEMİ ---
 ui_languages = {
-
-
-
-"English": {
-
-
-
-"title": "Salija AI | Estate Intelligence",
-
-
-
-"service_desc": "AI-Powered Visual Property Analysis & Copywriting Engine",
-
-
-
-"subtitle": "Convert property visuals into high-conversion marketing masterpieces.",
-
-
-
-"settings": "⚙️ Configuration",
-
-
-
-"target_lang": "✍️ Write Listing In...",
-
-
-
-"prop_type": "Property Type",
-
-
-
-"price": "Market Price",
-
-
-
-"location": "Location",
-
-
-
-"tone": "Strategy",
-
-
-
-"tones": ["Ultra-Luxury", "Investment Potential", "Modern Minimalist", "Family Comfort", "Standard Pro"],
-
-
-
-"custom_inst": "📝 Special Notes",
-
-
-
-"custom_inst_ph": "E.g., High ceilings, near metro...",
-
-
-
-"btn": "🚀 GENERATE ELITE COPY",
-
-
-
-"upload_label": "📸 Drop Property Photos Here",
-
-
-
-"result": "💎 Executive Preview (Listing, Social Media & Video)",
-
-
-
-"loading": "Architecting your marketing kit...",
-
-
-
-"empty": "Awaiting visuals to start analysis.",
-
-
-
-"download": "📥 Export TXT",
-
-
-
-"save_btn": "💾 Save Changes",
-
-
-
-"saved_msg": "✅ Saved!",
-
-
-
-"error": "Error:"
-
-
-
-},
-
-
-
-"Türkçe": {
-
-
-
-"title": "Salija AI | Emlak Zekası",
-
-
-
-"service_desc": "Yapay Zeka Destekli Görsel Mülk Analizi ve İlan Yazım Motoru",
-
-
-
-"subtitle": "Mülk görsellerini yüksek dönüşümlü pazarlama şaheserlerine dönüştürün.",
-
-
-
-"settings": "⚙️ Yapılandırma",
-
-
-
-"target_lang": "✍️ İlan Yazım Dili...",
-
-
-
-"prop_type": "Emlak Tipi",
-
-
-
-"price": "Pazar Fiyatı",
-
-
-
-"location": "Konum",
-
-
-
-"tone": "Strateji",
-
-
-
-"tones": ["Ultra-Lüks", "Yatırım Potansiyeli", "Modern Minimalist", "Aile Konforu", "Standart Profesyonel"],
-
-
-
-"custom_inst": "📝 Özel Notlar",
-
-
-
-"custom_inst_ph": "Örn: Yüksek tavanlar, metroya yakın...",
-
-
-
-"btn": "🚀 ELİT METİN OLUŞTUR",
-
-
-
-"upload_label": "📸 Fotoğrafları Buraya Bırakın",
-
-
-
-"result": "💎 Yönetici Önizlemesi (İlan, Sosyal Medya ve Video)",
-
-
-
-"loading": "Pazarlama paketiniz hazırlanıyor...",
-
-
-
-"empty": "Analiz için görsel bekleniyor.",
-
-
-
-"download": "📥 TXT Olarak İndir",
-
-
-
-"save_btn": "💾 Kaydet",
-
-
-
-"saved_msg": "✅ Kaydedildi!",
-
-
-
-"error": "Hata:"
-
-
-
-},
-
-
-
-"Español": {
-
-
-
-"title": "Salija AI | Inteligencia Inmobiliaria",
-
-
-
-"service_desc": "Motor de Redacción y Análisis Visual de Propiedades con IA",
-
-
-
-"subtitle": "Convierta visuales de propiedades en obras maestras de marketing.",
-
-
-
-"settings": "⚙️ Configuración",
-
-
-
-"target_lang": "✍️ Escribir en...",
-
-
-
-"prop_type": "Tipo de Propiedad",
-
-
-
-"price": "Precio de Mercado",
-
-
-
-"location": "Ubicación",
-
-
-
-"tone": "Estrategia",
-
-
-
-"tones": ["Ultra-Lujo", "Potencial de Inversión", "Minimalista Moderno", "Confort Familiar", "Profesional Estándar"],
-
-
-
-"custom_inst": "📝 Notas Especiales",
-
-
-
-"custom_inst_ph": "Ej: Techos altos, cerca del metro...",
-
-
-
-"btn": "🚀 GENERAR TEXTO ELITE",
-
-
-
-"upload_label": "📸 Subir Fotos Aquí",
-
-
-
-"result": "💎 Vista Previa Ejecutiva (Anuncio, Redes y Video)",
-
-
-
-"loading": "Arquitectando su kit de marketing...",
-
-
-
-"empty": "Esperando imágenes para analizar.",
-
-
-
-"download": "📥 Exportar TXT",
-
-
-
-"save_btn": "💾 Guardar Cambios",
-
-
-
-"saved_msg": "✅ ¡Guardado!",
-
-
-
-"error": "Error:"
-
-
-
-},
-
-
-
-"Deutsch": {
-
-
-
-"title": "Salija AI | Immobilien-Intelligenz",
-
-
-
-"service_desc": "KI-gestützte visuelle Objektanalyse & Copywriting-Engine",
-
-
-
-"subtitle": "Verwandeln Sie Immobilienfotos in hochwirksame Marketing-Meisterwerke.",
-
-
-
-"settings": "⚙️ Konfiguration",
-
-
-
-"target_lang": "✍️ Erstellen in...",
-
-
-
-"prop_type": "Objekttyp",
-
-
-
-"price": "Marktpreis",
-
-
-
-"location": "Standort",
-
-
-
-"tone": "Strategie",
-
-
-
-"tones": ["Ultra-Luxus", "Investitionspotenzial", "Modern-Minimalistisch", "Familienkomfort", "Standard-Profi"],
-
-
-
-"custom_inst": "📝 Notizen",
-
-
-
-"custom_inst_ph": "Z.B. Hohe Decken, U-Bahn-Nähe...",
-
-
-
-"btn": "🚀 ELITE-TEXT ERSTELLEN",
-
-
-
-"upload_label": "📸 Fotos hier hochladen",
-
-
-
-"result": "💎 Executive-Vorschau (Exposé, Social Media & Video)",
-
-
-
-"loading": "Erstelle Ihr Marketing-Kit...",
-
-
-
-"empty": "Warte auf Bilder zur Analyse.",
-
-
-
-"download": "📥 TXT Exportieren",
-
-
-
-"save_btn": "💾 Speichern",
-
-
-
-"saved_msg": "✅ Gespeichert!",
-
-
-
-"error": "Fehler:"
-
-
-
-},
-
-
-
-"Français": {
-
-
-
-"title": "Salija AI | Intelligence Immobilière",
-
-
-
-"service_desc": "Moteur d'Analyse Visuelle et de Rédaction Immobilière via IA",
-
-
-
-"subtitle": "Transformez vos visuels en chefs-d'œuvre marketing à haute conversion.",
-
-
-
-"settings": "⚙️ Configuration",
-
-
-
-"target_lang": "✍️ Rédiger en...",
-
-
-
-"prop_type": "Type de Bien",
-
-
-
-"price": "Prix du Marché",
-
-
-
-"location": "Localisation",
-
-
-
-"tone": "Stratégie",
-
-
-
-"tones": ["Ultra-Luxe", "Potentiel d'Investissement", "Minimaliste Moderne", "Confort Familial", "Standard Pro"],
-
-
-
-"custom_inst": "📝 Notes Spéciales",
-
-
-
-"custom_inst_ph": "Ex: Plafonds hauts, proche métro...",
-
-
-
-"btn": "🚀 GÉNÉRER TEXTE ÉLITE",
-
-
-
-"upload_label": "📸 Déposer les Photos Ici",
-
-
-
-"result": "💎 Aperçu Exécutif (Annonce, Réseaux et Vidéo)",
-
-
-
-"loading": "Création de votre kit marketing...",
-
-
-
-"empty": "En attente d'images pour analyse.",
-
-
-
-"download": "📥 Exporter TXT",
-
-
-
-"save_btn": "💾 Enregistrer",
-
-
-
-"saved_msg": "✅ Enregistré !",
-
-
-
-"error": "Erreur :"
-
-
-
-},
-
-
-
-"Português": {
-
-
-
-"title": "Salija AI | Inteligência Imobiliária",
-
-
-
-"service_desc": "Motor de Redação e Análise Visual de Imóveis com IA",
-
-
-
-"subtitle": "Converta visuais de imóveis em obras-primas de marketing.",
-
-
-
-"settings": "⚙️ Configuração",
-
-
-
-"target_lang": "✍️ Escrever em...",
-
-
-
-"prop_type": "Tipo de Imóvel",
-
-
-
-"price": "Preço de Mercado",
-
-
-
-"location": "Localização",
-
-
-
-"tone": "Estratégia",
-
-
-
-"tones": ["Ultra-Luxo", "Potencial de Investimento", "Minimalista Moderno", "Conforto Familiar", "Profissional Padrão"],
-
-
-
-"custom_inst": "📝 Notas Especiais",
-
-
-
-"custom_inst_ph": "Ex: Tetos altos, perto do metrô...",
-
-
-
-"btn": "🚀 GERAR TEXTO ELITE",
-
-
-
-"upload_label": "📸 Enviar Fotos Aqui",
-
-
-
-"result": "💎 Pré-visualização (Anúncio, Redes e Vídeo)",
-
-
-
-"loading": "Arquitetando seu kit de marketing...",
-
-
-
-"empty": "Aguardando imagens para análise.",
-
-
-
-"download": "📥 Exportar TXT",
-
-
-
-"save_btn": "💾 Salvar Alterações",
-
-
-
-"saved_msg": "✅ Salvo!",
-
-
-
-"error": "Erro:"
-
-
-
-},
-
-
-
-"日本語": {
-
-
-
-"title": "Salija AI | 不動産インテリジェンス",
-
-
-
-"service_desc": "AIを活用した物件ビジュアル分析＆コピーライティングエンジン",
-
-
-
-"subtitle": "物件写真を高成約率のマーケティング傑作に変換します。",
-
-
-
-"settings": "⚙️ 設定",
-
-
-
-"target_lang": "✍️ 作成言語...",
-
-
-
-"prop_type": "物件種別",
-
-
-
-"price": "市場価格",
-
-
-
-"location": "所在地",
-
-
-
-"tone": "戦略",
-
-
-
-"tones": ["ウルトララグジュアリー", "投資ポテンシャル", "モダンミニマリスト", "ファミリーコンフォート", "スタンダードプロ"],
-
-
-
-"custom_inst": "📝 特記事項",
-
-
-
-"custom_inst_ph": "例：高い天井、駅近...",
-
-
-
-"btn": "🚀 エリートコピーを生成",
-
-
-
-"upload_label": "📸 ここに写真をアップロード",
-
-
-
-"result": "💎 プレビュー (広告、SNS、動画)",
-
-
-
-"loading": "マーケティングキットを作成中...",
-
-
-
-"empty": "分析用の画像を待機中。",
-
-
-
-"download": "📥 TXT出力",
-
-
-
-"save_btn": "💾 変更を保存",
-
-
-
-"saved_msg": "✅ 保存完了！",
-
-
-
-"error": "エラー:"
-
-
-
-},
-
-
-
-"中文 (简体)": {
-
-
-
-"title": "Salija AI | 房地产智能",
-
-
-
-"service_desc": "AI驱动的房产视觉分析与文案引擎",
-
-
-
-"subtitle": "将房产图片转化为高转化率的营销杰作。",
-
-
-
-"settings": "⚙️ 配置",
-
-
-
-"target_lang": "✍️ 编写语言...",
-
-
-
-"prop_type": "房产类型",
-
-
-
-"price": "市场价格",
-
-
-
-"location": "地点",
-
-
-
-"tone": "策略",
-
-
-
-"tones": ["顶奢豪宅", "投资潜力", "现代简约", "家庭舒适", "标准专业"],
-
-
-
-"custom_inst": "📝 特别备注",
-
-
-
-"custom_inst_ph": "例如：挑高天花板，靠近地铁...",
-
-
-
-"btn": "🚀 生成精英文案",
-
-
-
-"upload_label": "📸 在此处上传照片",
-
-
-
-"result": "💎 预览 (房源、社交媒体与视频)",
-
-
-
-"loading": "正在构思您的营销套件...",
-
-
-
-"empty": "等待图像进行分析。",
-
-
-
-"download": "📥 导出 TXT",
-
-
-
-"save_btn": "💾 保存更改",
-
-
-
-"saved_msg": "✅ 已保存！",
-
-
-
-"error": "错误:"
-
-
-
-},
-
-
-
-"العربية": {
-
-
-
-"title": "Salija AI | ذكاء العقارات",
-
-
-
-"service_desc": "محرك تحليل الصور وكتابة الإعلانات العقارية بالذكاء الاصطناعي",
-
-
-
-"subtitle": "حول صور العقارات إلى تحف تسويقية عالية التحويل.",
-
-
-
-"settings": "⚙️ الإعدادات",
-
-
-
-"target_lang": "✍️ لغة الكتابة...",
-
-
-
-"prop_type": "نوع العقار",
-
-
-
-"price": "سعر السوق",
-
-
-
-"location": "الموقع",
-
-
-
-"tone": "الاستراتيجية",
-
-
-
-"tones": ["فخامة فائقة", "إمكانات استثمارية", "عصري بسيط", "راحة عائلية", "احترافي قياسي"],
-
-
-
-"custom_inst": "📝 ملاحظات خاصة",
-
-
-
-"custom_inst_ph": "مثال: أسقف عالية، بالقرب من المترو...",
-
-
-
-"btn": "🚀 إنشاء نص احترافي",
-
-
-
-"upload_label": "📸 ضع الصور هنا",
-
-
-
-"result": "💎 معاينة تنفيذية (إعلان، وسائل التواصل، فيديو)",
-
-
-
-"loading": "جاري تجهيز حزمة التسويق الخاصة بك...",
-
-
-
-"empty": "في انتظار الصور لبدء التحليل.",
-
-
-
-"download": "📥 تصدير TXT",
-
-
-
-"save_btn": "💾 حفظ التغييرات",
-
-
-
-"saved_msg": "✅ تم الحفظ!",
-
-
-
-"error": "خطأ:"
-
-
-
-}
-
-
-
+    "English": {
+        "title": "Salija AI | Estate Intelligence",
+        "service_desc": "AI-Powered Visual Property Analysis & Copywriting Engine",
+        "subtitle": "Convert property visuals into high-conversion marketing masterpieces.",
+        "settings": "⚙️ Configuration",
+        "target_lang": "✍️ Write Listing In...",
+        "prop_type": "Property Type",
+        "price": "Market Price",
+        "location": "Location",
+        "tone": "Strategy",
+        "tones": ["Ultra-Luxury", "Investment Potential", "Modern Minimalist", "Family Comfort", "Standard Pro"],
+        "custom_inst": "📝 Special Notes",
+        "custom_inst_ph": "E.g., High ceilings, near metro...",
+        "btn": "🚀 GENERATE ELITE COPY",
+        "upload_label": "📸 Drop Property Photos Here",
+        "result": "💎 Executive Preview",
+        "loading": "Architecting your listing...",
+        "empty": "Awaiting visuals to start analysis.",
+        "download": "📥 Export TXT",
+        "save_btn": "💾 Save Changes",
+        "saved_msg": "✅ Saved!",
+        "error": "Error:"
+    },
+    "Türkçe": {
+        "title": "Salija AI | Emlak Zekası",
+        "service_desc": "Yapay Zeka Destekli Görsel Mülk Analizi ve İlan Yazım Motoru",
+        "subtitle": "Mülk görsellerini yüksek dönüşümlü pazarlama şaheserlerine dönüştürün.",
+        "settings": "⚙️ Yapılandırma",
+        "target_lang": "✍️ İlan Yazım Dili...",
+        "prop_type": "Emlak Tipi",
+        "price": "Pazar Fiyatı",
+        "location": "Konum",
+        "tone": "Strateji",
+        "tones": ["Ultra-Lüks", "Yatırım Potansiyeli", "Modern Minimalist", "Aile Konforu", "Standart Profesyonel"],
+        "custom_inst": "📝 Özel Notlar",
+        "custom_inst_ph": "Örn: Yüksek tavanlar, metroya yakın...",
+        "btn": "🚀 ELİT METİN OLUŞTUR",
+        "upload_label": "📸 Fotoğrafları Buraya Bırakın",
+        "result": "💎 Yönetici Önizlemesi",
+        "loading": "İlanınız yazılıyor...",
+        "empty": "Analiz için görsel bekleniyor.",
+        "download": "📥 TXT Olarak İndir",
+        "save_btn": "💾 Kaydet",
+        "saved_msg": "✅ Kaydedildi!",
+        "error": "Hata:"
+    },
+    "Español": {
+        "title": "Salija AI | Inteligencia Inmobiliaria",
+        "service_desc": "Motor de Redacción y Análisis Visual de Propiedades con IA",
+        "subtitle": "Convierta visuales de propiedades en obras maestras de marketing.",
+        "settings": "⚙️ Configuración",
+        "target_lang": "✍️ Escribir en...",
+        "prop_type": "Tipo de Propiedad",
+        "price": "Precio de Mercado",
+        "location": "Ubicación",
+        "tone": "Estrategia",
+        "tones": ["Ultra-Lujo", "Potencial de Inversión", "Minimalista Moderno", "Confort Familiar", "Profesional Estándar"],
+        "custom_inst": "📝 Notas Especiales",
+        "custom_inst_ph": "Ej: Techos altos, cerca del metro...",
+        "btn": "🚀 GENERAR TEXTO ELITE",
+        "upload_label": "📸 Subir Fotos Aquí",
+        "result": "💎 Vista Previa Ejecutiva",
+        "loading": "Arquitectando su anuncio...",
+        "empty": "Esperando imágenes para analizar.",
+        "download": "📥 Exportar TXT",
+        "save_btn": "💾 Guardar Cambios",
+        "saved_msg": "✅ ¡Guardado!",
+        "error": "Error:"
+    },
+    "Deutsch": {
+        "title": "Salija AI | Immobilien-Intelligenz",
+        "service_desc": "KI-gestützte visuelle Objektanalyse & Copywriting-Engine",
+        "subtitle": "Verwandeln Sie Immobilienfotos in hochwirksame Marketing-Meisterwerke.",
+        "settings": "⚙️ Konfiguration",
+        "target_lang": "✍️ Erstellen in...",
+        "prop_type": "Objekttyp",
+        "price": "Marktpreis",
+        "location": "Standort",
+        "tone": "Strategie",
+        "tones": ["Ultra-Luxus", "Investitionspotenzial", "Modern-Minimalistisch", "Familienkomfort", "Standard-Profi"],
+        "custom_inst": "📝 Notizen",
+        "custom_inst_ph": "Z.B. Hohe Decken, U-Bahn-Nähe...",
+        "btn": "🚀 ELITE-TEXT ERSTELLEN",
+        "upload_label": "📸 Fotos hier hochladen",
+        "result": "💎 Executive-Vorschau",
+        "loading": "Erstelle Ihr Exposé...",
+        "empty": "Warte auf Bilder zur Analyse.",
+        "download": "📥 TXT Exportieren",
+        "save_btn": "💾 Speichern",
+        "saved_msg": "✅ Gespeichert!",
+        "error": "Fehler:"
+    },
+    "Français": {
+        "title": "Salija AI | Intelligence Immobilière",
+        "service_desc": "Moteur d'Analyse Visuelle et de Rédaction Immobilière via IA",
+        "subtitle": "Transformez vos visuels en chefs-d'œuvre marketing à haute conversion.",
+        "settings": "⚙️ Configuration",
+        "target_lang": "✍️ Rédiger en...",
+        "prop_type": "Type de Bien",
+        "price": "Prix du Marché",
+        "location": "Localisation",
+        "tone": "Stratégie",
+        "tones": ["Ultra-Luxe", "Potentiel d'Investissement", "Minimaliste Moderne", "Confort Familial", "Standard Pro"],
+        "custom_inst": "📝 Notes Spéciales",
+        "custom_inst_ph": "Ex: Plafonds hauts, proche métro...",
+        "btn": "🚀 GÉNÉRER TEXTE ÉLITE",
+        "upload_label": "📸 Déposer les Photos Ici",
+        "result": "💎 Aperçu Exécutif",
+        "loading": "Rédaction de votre annonce...",
+        "empty": "En attente d'images pour analyse.",
+        "download": "📥 Exporter TXT",
+        "save_btn": "💾 Enregistrer",
+        "saved_msg": "✅ Enregistré !",
+        "error": "Erreur :"
+    },
+    "Português": {
+        "title": "Salija AI | Inteligência Imobiliária",
+        "service_desc": "Motor de Redação e Análise Visual de Imóveis com IA",
+        "subtitle": "Converta visuais de imóveis em obras-primas de marketing.",
+        "settings": "⚙️ Configuração",
+        "target_lang": "✍️ Escrever em...",
+        "prop_type": "Tipo de Imóvel",
+        "price": "Preço de Mercado",
+        "location": "Localização",
+        "tone": "Estratégia",
+        "tones": ["Ultra-Luxo", "Potencial de Investimento", "Minimalista Moderno", "Conforto Familiar", "Profissional Padrão"],
+        "custom_inst": "📝 Notas Especiais",
+        "custom_inst_ph": "Ex: Tetos altos, perto do metrô...",
+        "btn": "🚀 GERAR TEXTO ELITE",
+        "upload_label": "📸 Enviar Fotos Aqui",
+        "result": "💎 Pré-visualização Executiva",
+        "loading": "Arquitetando seu anúncio...",
+        "empty": "Aguardando imagens para análise.",
+        "download": "📥 Exportar TXT",
+        "save_btn": "💾 Salvar Alterações",
+        "saved_msg": "✅ Salvo!",
+        "error": "Erro:"
+    },
+    "日本語": {
+        "title": "Salija AI | 不動産インテリジェンス",
+        "service_desc": "AIを活用した物件ビジュアル分析＆コピーライティングエンジン",
+        "subtitle": "物件写真を高成約率のマーケティング傑作に変換します。",
+        "settings": "⚙️ 設定",
+        "target_lang": "✍️ 作成言語...",
+        "prop_type": "物件種別",
+        "price": "市場価格",
+        "location": "所在地",
+        "tone": "戦略",
+        "tones": ["ウルトララグジュアリー", "投資ポテンシャル", "モダンミニマリスト", "ファミリーコンフォート", "スタンダードプロ"],
+        "custom_inst": "📝 特記事項",
+        "custom_inst_ph": "例：高い天井、駅近...",
+        "btn": "🚀 エリートコピーを生成",
+        "upload_label": "📸 ここに写真をアップロード",
+        "result": "💎 エグゼクティブプレビュー",
+        "loading": "広告を作成中...",
+        "empty": "分析用の画像を待機中。",
+        "download": "📥 TXT出力",
+        "save_btn": "💾 変更を保存",
+        "saved_msg": "✅ 保存完了！",
+        "error": "エラー:"
+    },
+    "中文 (简体)": {
+        "title": "Salija AI | 房地产智能",
+        "service_desc": "AI驱动的房产视觉分析与文案引擎",
+        "subtitle": "将房产图片转化为高转化率的营销杰作。",
+        "settings": "⚙️ 配置",
+        "target_lang": "✍️ 编写语言...",
+        "prop_type": "房产类型",
+        "price": "市场价格",
+        "location": "地点",
+        "tone": "策略",
+        "tones": ["顶奢豪宅", "投资潜力", "现代简约", "家庭舒适", "标准专业"],
+        "custom_inst": "📝 特别备注",
+        "custom_inst_ph": "例如：挑高天花板，靠近地铁...",
+        "btn": "🚀 生成精英文案",
+        "upload_label": "📸 在此处上传照片",
+        "result": "💎 高管预览",
+        "loading": "正在构思您的房源...",
+        "empty": "等待图像进行分析。",
+        "download": "📥 导出 TXT",
+        "save_btn": "💾 保存更改",
+        "saved_msg": "✅ 已保存！",
+        "error": "错误:"
+    },
+    "العربية": {
+        "title": "Salija AI | ذكاء العقارات",
+        "service_desc": "محرك تحليل الصور وكتابة الإعلانات العقارية بالذكاء الاصطناعي",
+        "subtitle": "حول صور العقارات إلى تحف تسويقية عالية التحويل.",
+        "settings": "⚙️ الإعدادات",
+        "target_lang": "✍️ لغة الكتابة...",
+        "prop_type": "نوع العقار",
+        "price": "سعر السوق",
+        "location": "الموقع",
+        "tone": "الاستراتيجية",
+        "tones": ["فخامة فائقة", "إمكانات استثمارية", "عصري بسيط", "راحة عائلية", "احترافي قياسي"],
+        "custom_inst": "📝 ملاحظات خاصة",
+        "custom_inst_ph": "مثال: أسقف عالية، بالقرب من المترو...",
+        "btn": "🚀 إنشاء نص احترافي",
+        "upload_label": "📸 ضع الصور هنا",
+        "result": "💎 معاينة تنفيذية",
+        "loading": "جاري صياغة إعلانك...",
+        "empty": "في انتظار الصور لبدء التحليل.",
+        "download": "📥 تصدير TXT",
+        "save_btn": "💾 حفظ التغييرات",
+        "saved_msg": "✅ تم الحفظ!",
+        "error": "خطأ:"
+    }
 }
 
 # --- SESSION STATE ---
@@ -865,7 +238,7 @@ if "tone" not in st.session_state: st.session_state.tone = "Ultra-Luxury"
 if "custom_inst" not in st.session_state: st.session_state.custom_inst = ""
 if "target_lang_input" not in st.session_state: st.session_state.target_lang_input = "Türkçe"
 
-# --- CSS ---
+# --- CSS (Hata Giderici & Tasarım) ---
 st.markdown("""
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
@@ -873,10 +246,25 @@ st.markdown("""
         .stApp { background-color: #f8fafc; }
         .block-container { background: white; padding: 3rem !important; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.04); margin-top: 2rem; border: 1px solid #e2e8f0; }
         h1 { color: #0f172a !important; font-weight: 800 !important; text-align: center; }
+        
+        /* Hata giderme (keyboard_double_arrow_left gizleme) */
+        button[data-baseweb="tab"] div { font-size: 14px !important; }
+        
         .stButton>button { background: #0f172a; color: white !important; border-radius: 10px; padding: 14px; font-weight: 600; width: 100%; }
-        .stTabs [data-baseweb="tab-list"] { gap: 20px; }
-        .stTabs [data-baseweb="tab"] { height: 50px; background-color: #f1f5f9; border-radius: 10px 10px 0 0; padding: 10px 20px; }
-        .stTabs [aria-selected="true"] { background-color: #0f172a !important; color: white !important; }
+        
+        /* Sekme Tasarımı */
+        .stTabs [data-baseweb="tab-list"] { gap: 10px; }
+        .stTabs [data-baseweb="tab"] { 
+            height: 45px; 
+            background-color: #f1f5f9; 
+            border-radius: 8px 8px 0 0; 
+            padding: 8px 16px; 
+            border: none;
+        }
+        .stTabs [aria-selected="true"] { 
+            background-color: #0f172a !important; 
+            color: white !important; 
+        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -961,13 +349,13 @@ if uploaded_files:
         tab1, tab2, tab3, tab4 = st.tabs(["📝 Ana İlan", "📱 Sosyal Medya", "🎬 Video", "⚙️ Teknik Detay"])
         
         with tab1:
-            res_ana = st.text_area("Pazarlama Metni", value=sec1 if sec1 else raw_text, height=400)
+            res_ana = st.text_area("Pazarlama Metni", value=sec1 if sec1 else raw_text, height=400, key="txt_ana")
         with tab2:
-            res_sosyal = st.text_area("Sosyal Medya", value=sec2, height=400)
+            res_sosyal = st.text_area("Sosyal Medya", value=sec2, height=400, key="txt_sosyal")
         with tab3:
-            res_video = st.text_area("Video Script", value=sec3, height=400)
+            res_video = st.text_area("Video Script", value=sec3, height=400, key="txt_video")
         with tab4:
-            res_teknik = st.text_area("Teknik Özellikler", value=sec4, height=400)
+            res_teknik = st.text_area("Teknik Özellikler", value=sec4, height=400, key="txt_teknik")
         
         c1, c2 = st.columns(2)
         with c1:
