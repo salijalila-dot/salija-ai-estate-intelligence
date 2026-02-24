@@ -229,14 +229,14 @@ ui_languages = {
     }
 }
 
-# --- SESSION STATE ---
+# --- SESSION STATE (Başlangıç Değerleri İngilizce ve Londra Örneği Yapıldı) ---
 if "uretilen_ilan" not in st.session_state: st.session_state.uretilen_ilan = ""
-if "prop_type" not in st.session_state: st.session_state.prop_type = "Luxury Apartment"
-if "price" not in st.session_state: st.session_state.price = "14.000.000 TL"
-if "location" not in st.session_state: st.session_state.location = "City Center"
+if "prop_type" not in st.session_state: st.session_state.prop_type = "Ultra-Luxury Apartment"
+if "price" not in st.session_state: st.session_state.price = "£14,500,000"
+if "location" not in st.session_state: st.session_state.location = "Mayfair, London"
 if "tone" not in st.session_state: st.session_state.tone = "Ultra-Luxury"
-if "custom_inst" not in st.session_state: st.session_state.custom_inst = ""
-if "target_lang_input" not in st.session_state: st.session_state.target_lang_input = "Türkçe"
+if "custom_inst" not in st.session_state: st.session_state.custom_inst = "Views of Green Park, 24-hour concierge, private wellness suite"
+if "target_lang_input" not in st.session_state: st.session_state.target_lang_input = "English"
 
 # --- CSS (Hata Giderici & Tasarım) ---
 st.markdown("""
@@ -287,13 +287,14 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- SIDEBAR ---
+# --- SIDEBAR (Varsayılan Dil English yapıldı) ---
 with st.sidebar:
     logo_img = load_logo("Salija_AI_Transparent_Logo.png")
     if logo_img: st.image(logo_img, use_container_width=True)
     else: st.markdown("<h2 style='text-align:center; color:#0f172a;'>SALIJA AI</h2>", unsafe_allow_html=True)
     
-    current_ui_lang = st.selectbox("🌐 Interface", list(ui_languages.keys()), index=1)
+    # index=0 yapılarak liste başındaki English seçildi
+    current_ui_lang = st.selectbox("🌐 Interface", list(ui_languages.keys()), index=0) 
     t = ui_languages[current_ui_lang]
     
     st.markdown("---")
@@ -385,3 +386,4 @@ if uploaded_files:
             st.download_button(t["download"], data=st.session_state.uretilen_ilan, file_name="salija_ai_kit.txt")
 else:
     st.info(t["empty"])
+
