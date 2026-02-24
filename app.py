@@ -238,7 +238,7 @@ if "tone" not in st.session_state: st.session_state.tone = "Ultra-Luxury"
 if "custom_inst" not in st.session_state: st.session_state.custom_inst = "Views of Green Park, 24-hour concierge, private wellness suite"
 if "target_lang_input" not in st.session_state: st.session_state.target_lang_input = "English"
 
-# --- CSS (Hata Giderici, Tasarım & Nokta Atışı Yan Menü Cursor Ayarları) ---
+# --- CSS (Selectbox ve Sidebar Özel Pointer Ayarı) ---
 st.markdown("""
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
@@ -247,27 +247,32 @@ st.markdown("""
         .block-container { background: white; padding: 3rem !important; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.04); margin-top: 2rem; border: 1px solid #e2e8f0; }
         h1 { color: #0f172a !important; font-weight: 800 !important; text-align: center; }
         
-        /* --- SIDEBAR İÇİNDEKİ TÜM GİRİŞ ALANLARINI POINTER YAPMA --- */
-        /* Bu kısım senin istediğin: Sidebar'daki text input, selectbox ve text area'lar */
-        [data-testid="stSidebar"] .stTextInput input, 
-        [data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"], 
-        [data-testid="stSidebar"] .stTextArea textarea {
+        /* --- İŞTE BURASI: SELECTBOX (INTERFACE & STRATEGY) POINTER YAPMA --- */
+        /* Selectbox'ın hem kendisini hem de içindeki tıklanabilir alanı hedefliyoruz */
+        div[data-baseweb="select"], 
+        div[data-baseweb="select"] > div, 
+        div[aria-haspopup="listbox"] {
             cursor: pointer !important;
         }
 
-        /* --- GENEL BUTON VE SEKME POINTER AYARLARI --- */
+        /* Sidebar içindeki input ve textarea alanları */
+        [data-testid="stSidebar"] input, 
+        [data-testid="stSidebar"] textarea {
+            cursor: pointer !important;
+        }
+
+        /* --- DİĞER POINTERLAR --- */
         button, [data-baseweb="tab"], [data-testid="stFileUploader"] {
             cursor: pointer !important;
         }
 
-        /* --- NOKTA ATIŞI: O ÇİRKİN YAZIYI SİLME --- */
+        /* --- İKON TEMİZLEME (ESKİ SORUN) --- */
         span[data-testid="stIconMaterial"] {
             font-size: 0px !important;
             line-height: 0 !important;
             display: inline-block !important;
             color: transparent !important;
         }
-        
         span[data-testid="stIconMaterial"]::before {
             content: "⬅️" !important;
             font-size: 18px !important;
@@ -276,14 +281,12 @@ st.markdown("""
             display: block !important;
         }
 
-        /* --- SIDEBAR BUTONUNU DÜZELTME --- */
+        /* --- TASARIM DETAYLARI --- */
         [data-testid="stSidebarCollapseButton"] {
             background-color: #f1f5f9 !important;
             border-radius: 8px !important;
             cursor: pointer !important;
         }
-
-        button[data-baseweb="tab"] div { font-size: 14px !important; }
         .stButton>button { 
             background: #0f172a; 
             color: white !important; 
@@ -293,19 +296,15 @@ st.markdown("""
             width: 100%;
             transition: all 0.3s ease;
         }
-        
         .stButton>button:hover {
             background: #1e293b;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-
-        .stTabs [data-baseweb="tab-list"] { gap: 10px; }
         .stTabs [data-baseweb="tab"] { 
             height: 45px; 
             background-color: #f1f5f9; 
             border-radius: 8px 8px 0 0; 
             padding: 8px 16px; 
-            border: none;
+            cursor: pointer !important;
         }
         .stTabs [aria-selected="true"] { 
             background-color: #0f172a !important; 
@@ -413,6 +412,7 @@ if uploaded_files:
             st.download_button(t["download"], data=st.session_state.uretilen_ilan, file_name="salija_ai_kit.txt")
 else:
     st.info(t["empty"])
+
 
 
 
