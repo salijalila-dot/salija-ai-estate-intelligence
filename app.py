@@ -36,8 +36,8 @@ ui_languages = {
         "custom_inst_ph": "E.g., High ceilings, near metro...",
         "btn": "🚀 GENERATE ELITE COPY",
         "upload_label": "📸 Drop Property Photos Here",
-        "result": "💎 Executive Preview",
-        "loading": "Architecting your listing...",
+        "result": "💎 Executive Preview (Listing, Social Media & Video)",
+        "loading": "Architecting your marketing kit...",
         "empty": "Awaiting visuals to start analysis.",
         "download": "📥 Export TXT",
         "save_btn": "💾 Save Changes",
@@ -59,8 +59,8 @@ ui_languages = {
         "custom_inst_ph": "Örn: Yüksek tavanlar, metroya yakın...",
         "btn": "🚀 ELİT METİN OLUŞTUR",
         "upload_label": "📸 Fotoğrafları Buraya Bırakın",
-        "result": "💎 Yönetici Önizlemesi",
-        "loading": "İlanınız yazılıyor...",
+        "result": "💎 Yönetici Önizlemesi (İlan, Sosyal Medya ve Video)",
+        "loading": "Pazarlama paketiniz hazırlanıyor...",
         "empty": "Analiz için görsel bekleniyor.",
         "download": "📥 TXT Olarak İndir",
         "save_btn": "💾 Kaydet",
@@ -82,8 +82,8 @@ ui_languages = {
         "custom_inst_ph": "Ej: Techos altos, cerca del metro...",
         "btn": "🚀 GENERAR TEXTO ELITE",
         "upload_label": "📸 Subir Fotos Aquí",
-        "result": "💎 Vista Previa Ejecutiva",
-        "loading": "Arquitectando su anuncio...",
+        "result": "💎 Vista Previa Ejecutiva (Anuncio, Redes y Video)",
+        "loading": "Arquitectando su kit de marketing...",
         "empty": "Esperando imágenes para analizar.",
         "download": "📥 Exportar TXT",
         "save_btn": "💾 Guardar Cambios",
@@ -105,8 +105,8 @@ ui_languages = {
         "custom_inst_ph": "Z.B. Hohe Decken, U-Bahn-Nähe...",
         "btn": "🚀 ELITE-TEXT ERSTELLEN",
         "upload_label": "📸 Fotos hier hochladen",
-        "result": "💎 Executive-Vorschau",
-        "loading": "Erstelle Ihr Exposé...",
+        "result": "💎 Executive-Vorschau (Exposé, Social Media & Video)",
+        "loading": "Erstelle Ihr Marketing-Kit...",
         "empty": "Warte auf Bilder zur Analyse.",
         "download": "📥 TXT Exportieren",
         "save_btn": "💾 Speichern",
@@ -128,8 +128,8 @@ ui_languages = {
         "custom_inst_ph": "Ex: Plafonds hauts, proche métro...",
         "btn": "🚀 GÉNÉRER TEXTE ÉLITE",
         "upload_label": "📸 Déposer les Photos Ici",
-        "result": "💎 Aperçu Exécutif",
-        "loading": "Rédaction de votre annonce...",
+        "result": "💎 Aperçu Exécutif (Annonce, Réseaux et Vidéo)",
+        "loading": "Création de votre kit marketing...",
         "empty": "En attente d'images pour analyse.",
         "download": "📥 Exporter TXT",
         "save_btn": "💾 Enregistrer",
@@ -151,8 +151,8 @@ ui_languages = {
         "custom_inst_ph": "Ex: Tetos altos, perto do metrô...",
         "btn": "🚀 GERAR TEXTO ELITE",
         "upload_label": "📸 Enviar Fotos Aqui",
-        "result": "💎 Pré-visualização Executiva",
-        "loading": "Arquitetando seu anúncio...",
+        "result": "💎 Pré-visualização (Anúncio, Redes e Vídeo)",
+        "loading": "Arquitetando seu kit de marketing...",
         "empty": "Aguardando imagens para análise.",
         "download": "📥 Exportar TXT",
         "save_btn": "💾 Salvar Alterações",
@@ -174,8 +174,8 @@ ui_languages = {
         "custom_inst_ph": "例：高い天井、駅近...",
         "btn": "🚀 エリートコピーを生成",
         "upload_label": "📸 ここに写真をアップロード",
-        "result": "💎 エグゼクティブプレビュー",
-        "loading": "広告を作成中...",
+        "result": "💎 プレビュー (広告、SNS、動画)",
+        "loading": "マーケティングキットを作成中...",
         "empty": "分析用の画像を待機中。",
         "download": "📥 TXT出力",
         "save_btn": "💾 変更を保存",
@@ -197,8 +197,8 @@ ui_languages = {
         "custom_inst_ph": "例如：挑高天花板，靠近地铁...",
         "btn": "🚀 生成精英文案",
         "upload_label": "📸 在此处上传照片",
-        "result": "💎 高管预览",
-        "loading": "正在构思您的房源...",
+        "result": "💎 预览 (房源、社交媒体与视频)",
+        "loading": "正在构思您的营销套件...",
         "empty": "等待图像进行分析。",
         "download": "📥 导出 TXT",
         "save_btn": "💾 保存更改",
@@ -220,8 +220,8 @@ ui_languages = {
         "custom_inst_ph": "مثال: أسقف عالية، بالقرب من المترو...",
         "btn": "🚀 إنشاء نص احترافي",
         "upload_label": "📸 ضع الصور هنا",
-        "result": "💎 معاينة تنفيذية",
-        "loading": "جاري صياغة إعلانك...",
+        "result": "💎 معاينة تنفيذية (إعلان، وسائل التواصل، فيديو)",
+        "loading": "جاري تجهيز حزمة التسويق الخاصة بك...",
         "empty": "في انتظار الصور لبدء التحليل.",
         "download": "📥 تصدير TXT",
         "save_btn": "💾 حفظ التغييرات",
@@ -336,13 +336,26 @@ if uploaded_files:
     st.markdown("<br>", unsafe_allow_html=True)
     if st.button(t["btn"]):
         with st.spinner(t["loading"]):
+            # İŞTE SİHİRLİ YENİ TALİMATIMIZ BURADA (3'ü 1 Arada Paket)
             expert_prompt = f"""
-            System: Elite Real Estate Marketer.
-            Task: Write a high-conversion listing in {st.session_state.target_lang_input}.
+            System: Elite Real Estate Marketer & Social Media Expert.
+            Task: Create a COMPLETE marketing kit in {st.session_state.target_lang_input}.
             Strategy: {st.session_state.tone}.
             Details: {st.session_state.prop_type}, {st.session_state.location}, Price: {st.session_state.price}.
             Notes: {st.session_state.custom_inst}
-            Requirements: headline, lifestyle story, features, CTA.
+            
+            Based on the photos and details, strictly provide the output in the following format:
+            
+            # 🌟 [Catchy & Luxurious Headline]
+            
+            ## 📝 Main Listing Description
+            [Write the high-conversion listing here with a lifestyle story, features, and a strong Call to Action]
+            
+            ## 📱 Instagram / Social Media Post
+            [Write an engaging, short caption with emojis and at least 10 trending real estate hashtags]
+            
+            ## 🎬 Short Video (Reels/TikTok) Script
+            [Write a 30-second video script describing exactly what the agent should show in the video and what to say]
             """
             try:
                 response = model.generate_content([expert_prompt] + images_for_ai)
@@ -353,7 +366,7 @@ if uploaded_files:
     if st.session_state.uretilen_ilan:
         st.markdown("---")
         st.subheader(t["result"])
-        final_edit = st.text_area("Editor", st.session_state.uretilen_ilan, height=450, label_visibility="collapsed")
+        final_edit = st.text_area("Editor", st.session_state.uretilen_ilan, height=550, label_visibility="collapsed")
         
         c1, c2 = st.columns(2)
         with c1:
@@ -361,10 +374,6 @@ if uploaded_files:
                 st.session_state.uretilen_ilan = final_edit
                 st.success(t["saved_msg"])
         with c2:
-            st.download_button(t["download"], data=st.session_state.uretilen_ilan, file_name="salija_ai_listing.txt")
+            st.download_button(t["download"], data=st.session_state.uretilen_ilan, file_name="salija_ai_marketing_kit.txt")
 else:
-
     st.info(t["empty"])
-
-
-
