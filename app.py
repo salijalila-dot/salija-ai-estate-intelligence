@@ -238,7 +238,7 @@ if "tone" not in st.session_state: st.session_state.tone = "Ultra-Luxury"
 if "custom_inst" not in st.session_state: st.session_state.custom_inst = "Views of Green Park, 24-hour concierge, private wellness suite"
 if "target_lang_input" not in st.session_state: st.session_state.target_lang_input = "English"
 
-# --- CSS (Hata Giderici, Tasarım & Cursor Ayarları) ---
+# --- CSS (Hata Giderici, Tasarım & Nokta Atışı Yan Menü Cursor Ayarları) ---
 st.markdown("""
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
@@ -247,9 +247,16 @@ st.markdown("""
         .block-container { background: white; padding: 3rem !important; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.04); margin-top: 2rem; border: 1px solid #e2e8f0; }
         h1 { color: #0f172a !important; font-weight: 800 !important; text-align: center; }
         
-        /* --- CURSOR POINTER (Fare İmleci Ayarları) --- */
-        /* Butonlar, Sekmeler (Tabs) ve Dosya Yükleme alanı için fareyi el işareti yapar */
-        button, [data-baseweb="tab"], .stMarkdown, [data-testid="stFileUploader"] {
+        /* --- SIDEBAR İÇİNDEKİ TÜM GİRİŞ ALANLARINI POINTER YAPMA --- */
+        /* Bu kısım senin istediğin: Sidebar'daki text input, selectbox ve text area'lar */
+        [data-testid="stSidebar"] .stTextInput input, 
+        [data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"], 
+        [data-testid="stSidebar"] .stTextArea textarea {
+            cursor: pointer !important;
+        }
+
+        /* --- GENEL BUTON VE SEKME POINTER AYARLARI --- */
+        button, [data-baseweb="tab"], [data-testid="stFileUploader"] {
             cursor: pointer !important;
         }
 
@@ -287,7 +294,6 @@ st.markdown("""
             transition: all 0.3s ease;
         }
         
-        /* Butona basıldığında veya üzerine gelindiğinde ufak bir parlama efekti */
         .stButton>button:hover {
             background: #1e293b;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -407,5 +413,6 @@ if uploaded_files:
             st.download_button(t["download"], data=st.session_state.uretilen_ilan, file_name="salija_ai_kit.txt")
 else:
     st.info(t["empty"])
+
 
 
