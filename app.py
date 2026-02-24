@@ -18,7 +18,7 @@ def load_logo(file_path):
     if os.path.exists(file_path): return Image.open(file_path)
     return None
 
-# --- GLOBAL DİL SİSTEMİ ---
+# --- GLOBAL DİL SİSTEMİ (Diller Korundu) ---
 ui_languages = {
     "English": {
         "title": "Salija AI | Estate Intelligence",
@@ -210,7 +210,7 @@ ui_languages = {
         "subtitle": "حول صور العقارات إلى تحف تسويقية عالية التحويل.",
         "settings": "⚙️ الإعدادات",
         "target_lang": "✍️ لغة الكتابة...",
-        "prop_type": "نوع العقار",
+        "prop_type": "نوع العقar",
         "price": "سعر السوق",
         "location": "الموقع",
         "tone": "الاستراتيجية",
@@ -247,28 +247,28 @@ st.markdown("""
         .block-container { background: white; padding: 3rem !important; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.04); margin-top: 2rem; border: 1px solid #e2e8f0; }
         h1 { color: #0f172a !important; font-weight: 800 !important; text-align: center; }
         
-        /* --- ACIMASIZ BRUTE FORCE ÇÖZÜMÜ (Sidebar Hatası İçin) --- */
-        /* Bu blok, "keyboard_double_arrow" içeren tüm elementleri yok eder ve üzerine ikon basar */
-        [data-testid="stSidebarCollapseButton"] div:first-child {
-            display: none !important;
+        /* --- NOKTA ATIŞI: O ÇİRKİN YAZIYI SİLME --- */
+        span[data-testid="stIconMaterial"] {
+            font-size: 0px !important;
+            line-height: 0 !important;
+            display: inline-block !important;
+            color: transparent !important;
         }
-        [data-testid="stSidebarCollapseButton"] {
-            background-color: #f1f5f9 !important;
-            border-radius: 50% !important;
-            width: 40px !important;
-            height: 40px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-        }
-        [data-testid="stSidebarCollapseButton"]::after {
-            content: "☰" !important;
-            font-size: 20px !important;
+        
+        span[data-testid="stIconMaterial"]::before {
+            content: "⬅️" !important; /* Ok işareti buraya gelir */
+            font-size: 18px !important;
             color: #0f172a !important;
             visibility: visible !important;
+            display: block !important;
         }
 
-        /* --- STANDART TASARIM --- */
+        /* --- SIDEBAR BUTONUNU DÜZELTME --- */
+        [data-testid="stSidebarCollapseButton"] {
+            background-color: #f1f5f9 !important;
+            border-radius: 8px !important;
+        }
+
         button[data-baseweb="tab"] div { font-size: 14px !important; }
         .stButton>button { background: #0f172a; color: white !important; border-radius: 10px; padding: 14px; font-weight: 600; width: 100%; }
         
