@@ -18,7 +18,7 @@ def load_logo(file_path):
     if os.path.exists(file_path): return Image.open(file_path)
     return None
 
-# --- GLOBAL DİL SİSTEMİ (Diller Korundu) ---
+# --- GLOBAL DİL SİSTEMİ ---
 ui_languages = {
     "English": {
         "title": "Salija AI | Estate Intelligence",
@@ -41,7 +41,9 @@ ui_languages = {
         "download": "📥 Export TXT",
         "save_btn": "💾 Save Changes",
         "saved_msg": "✅ Saved!",
-        "error": "Error:"
+        "error": "Error:",
+        "tab_main": "📝 Main Listing", "tab_social": "📱 Social Media", "tab_video": "🎬 Video", "tab_tech": "⚙️ Technical Details",
+        "label_main": "Marketing Copy", "label_social": "Social Media Content", "label_video": "Video Script", "label_tech": "Technical Specs"
     },
     "Türkçe": {
         "title": "Salija AI | Emlak Zekası",
@@ -64,7 +66,9 @@ ui_languages = {
         "download": "📥 TXT Olarak İndir",
         "save_btn": "💾 Kaydet",
         "saved_msg": "✅ Kaydedildi!",
-        "error": "Hata:"
+        "error": "Hata:",
+        "tab_main": "📝 Ana İlan", "tab_social": "📱 Sosyal Medya", "tab_video": "🎬 Video", "tab_tech": "⚙️ Teknik Detay",
+        "label_main": "Pazarlama Metni", "label_social": "Sosyal Medya", "label_video": "Video Script", "label_tech": "Teknik Özellikler"
     },
     "Español": {
         "title": "Salija AI | Inteligencia Inmobiliaria",
@@ -87,7 +91,9 @@ ui_languages = {
         "download": "📥 Exportar TXT",
         "save_btn": "💾 Guardar Cambios",
         "saved_msg": "✅ ¡Guardado!",
-        "error": "Error:"
+        "error": "Error:",
+        "tab_main": "📝 Anuncio", "tab_social": "📱 Redes Sociales", "tab_video": "🎬 Video", "tab_tech": "⚙️ Detalles Técnicos",
+        "label_main": "Texto de Marketing", "label_social": "Contenido Social", "label_video": "Guion de Video", "label_tech": "Especificaciones"
     },
     "Deutsch": {
         "title": "Salija AI | Immobilien-Intelligenz",
@@ -110,7 +116,9 @@ ui_languages = {
         "download": "📥 TXT Exportieren",
         "save_btn": "💾 Speichern",
         "saved_msg": "✅ Gespeichert!",
-        "error": "Fehler:"
+        "error": "Fehler:",
+        "tab_main": "📝 Exposé", "tab_social": "📱 Social Media", "tab_video": "🎬 Video", "tab_tech": "⚙️ Details",
+        "label_main": "Marketing-Text", "label_social": "Social Media Content", "label_video": "Video-Skript", "label_tech": "Technische Daten"
     },
     "Français": {
         "title": "Salija AI | Intelligence Immobilière",
@@ -133,7 +141,9 @@ ui_languages = {
         "download": "📥 Exporter TXT",
         "save_btn": "💾 Enregistrer",
         "saved_msg": "✅ Enregistré !",
-        "error": "Erreur :"
+        "error": "Erreur :",
+        "tab_main": "📝 Annonce", "tab_social": "📱 Réseaux Sociaux", "tab_video": "🎬 Vidéo", "tab_tech": "⚙️ Détails Techniques",
+        "label_main": "Texte Marketing", "label_social": "Contenu Social", "label_video": "Script Vidéo", "label_tech": "Spécifications"
     },
     "Português": {
         "title": "Salija AI | Inteligência Imobiliária",
@@ -156,7 +166,9 @@ ui_languages = {
         "download": "📥 Exportar TXT",
         "save_btn": "💾 Salvar Alterações",
         "saved_msg": "✅ Salvo!",
-        "error": "Erro:"
+        "error": "Erro:",
+        "tab_main": "📝 Anúncio", "tab_social": "📱 Redes Sociais", "tab_video": "🎬 Vídeo", "tab_tech": "⚙️ Detalhes Técnicos",
+        "label_main": "Texto de Marketing", "label_social": "Conteúdo Social", "label_video": "Script de Vídeo", "label_tech": "Especificações"
     },
     "日本語": {
         "title": "Salija AI | 不動産インテリジェンス",
@@ -179,7 +191,9 @@ ui_languages = {
         "download": "📥 TXT出力",
         "save_btn": "💾 変更を保存",
         "saved_msg": "✅ 保存完了！",
-        "error": "エラー:"
+        "error": "エラー:",
+        "tab_main": "📝 メイン広告", "tab_social": "📱 SNS投稿", "tab_video": "🎬 動画", "tab_tech": "⚙️ 技術詳細",
+        "label_main": "マーケティングコピー", "label_social": "SNSコンテンツ", "label_video": "動画台本", "label_tech": "技術仕様"
     },
     "中文 (简体)": {
         "title": "Salija AI | 房地产智能",
@@ -202,7 +216,9 @@ ui_languages = {
         "download": "📥 导出 TXT",
         "save_btn": "💾 保存更改",
         "saved_msg": "✅ 已保存！",
-        "error": "错误:"
+        "error": "错误:",
+        "tab_main": "📝 房源描述", "tab_social": "📱 社交媒体", "tab_video": "🎬 视频脚本", "tab_tech": "⚙️ 技术细节",
+        "label_main": "营销文案", "label_social": "社媒内容", "label_video": "视频脚本", "label_tech": "技术规格"
     },
     "العربية": {
         "title": "Salija AI | ذكاء العقارات",
@@ -210,7 +226,7 @@ ui_languages = {
         "subtitle": "حول صور العقارات إلى تحف تسويقية عالية التحويل.",
         "settings": "⚙️ الإعدادات",
         "target_lang": "✍️ لغة الكتابة...",
-        "prop_type": "نوع العقar",
+        "prop_type": "نوع العقار",
         "price": "سعر السوق",
         "location": "الموقع",
         "tone": "الاستراتيجية",
@@ -225,11 +241,13 @@ ui_languages = {
         "download": "📥 تصدير TXT",
         "save_btn": "💾 حفظ التغييرات",
         "saved_msg": "✅ تم الحفظ!",
-        "error": "خطأ:"
+        "error": "خطأ:",
+        "tab_main": "📝 الإعلان الرئيسي", "tab_social": "📱 وسائل التواصل", "tab_video": "🎬 فيديو", "tab_tech": "⚙️ تفاصيل تقنية",
+        "label_main": "نص التسويق", "label_social": "محتوى التواصل", "label_video": "سيناريو الفيديو", "label_tech": "المواصفات التقنية"
     }
 }
 
-# --- SESSION STATE (Başlangıç Değerleri İngilizce ve Londra Örneği Yapıldı) ---
+# --- SESSION STATE ---
 if "uretilen_ilan" not in st.session_state: st.session_state.uretilen_ilan = ""
 if "prop_type" not in st.session_state: st.session_state.prop_type = "Ultra-Luxury Apartment"
 if "price" not in st.session_state: st.session_state.price = "£14,500,000"
@@ -238,7 +256,7 @@ if "tone" not in st.session_state: st.session_state.tone = "Ultra-Luxury"
 if "custom_inst" not in st.session_state: st.session_state.custom_inst = "Views of Green Park, 24-hour concierge, private wellness suite"
 if "target_lang_input" not in st.session_state: st.session_state.target_lang_input = "English"
 
-# --- CSS (Selectbox ve Sidebar Özel Pointer Ayarı) ---
+# --- CSS ---
 st.markdown("""
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
@@ -247,79 +265,27 @@ st.markdown("""
         .block-container { background: white; padding: 3rem !important; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.04); margin-top: 2rem; border: 1px solid #e2e8f0; }
         h1 { color: #0f172a !important; font-weight: 800 !important; text-align: center; }
         
-        /* --- İŞTE BURASI: SELECTBOX (INTERFACE & STRATEGY) POINTER YAPMA --- */
-        /* Selectbox'ın hem kendisini hem de içindeki tıklanabilir alanı hedefliyoruz */
-        div[data-baseweb="select"], 
-        div[data-baseweb="select"] > div, 
-        div[aria-haspopup="listbox"] {
-            cursor: pointer !important;
-        }
+        div[data-baseweb="select"], div[data-baseweb="select"] > div, div[aria-haspopup="listbox"] { cursor: pointer !important; }
+        [data-testid="stSidebar"] input, [data-testid="stSidebar"] textarea { cursor: pointer !important; }
+        button, [data-baseweb="tab"], [data-testid="stFileUploader"] { cursor: pointer !important; }
 
-        /* Sidebar içindeki input ve textarea alanları */
-        [data-testid="stSidebar"] input, 
-        [data-testid="stSidebar"] textarea {
-            cursor: pointer !important;
-        }
+        span[data-testid="stIconMaterial"] { font-size: 0px !important; line-height: 0 !important; display: inline-block !important; color: transparent !important; }
+        span[data-testid="stIconMaterial"]::before { content: "⬅️" !important; font-size: 18px !important; color: #0f172a !important; visibility: visible !important; display: block !important; }
 
-        /* --- DİĞER POINTERLAR --- */
-        button, [data-baseweb="tab"], [data-testid="stFileUploader"] {
-            cursor: pointer !important;
-        }
-
-        /* --- İKON TEMİZLEME (ESKİ SORUN) --- */
-        span[data-testid="stIconMaterial"] {
-            font-size: 0px !important;
-            line-height: 0 !important;
-            display: inline-block !important;
-            color: transparent !important;
-        }
-        span[data-testid="stIconMaterial"]::before {
-            content: "⬅️" !important;
-            font-size: 18px !important;
-            color: #0f172a !important;
-            visibility: visible !important;
-            display: block !important;
-        }
-
-        /* --- TASARIM DETAYLARI --- */
-        [data-testid="stSidebarCollapseButton"] {
-            background-color: #f1f5f9 !important;
-            border-radius: 8px !important;
-            cursor: pointer !important;
-        }
-        .stButton>button { 
-            background: #0f172a; 
-            color: white !important; 
-            border-radius: 10px; 
-            padding: 14px; 
-            font-weight: 600; 
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-        .stButton>button:hover {
-            background: #1e293b;
-        }
-        .stTabs [data-baseweb="tab"] { 
-            height: 45px; 
-            background-color: #f1f5f9; 
-            border-radius: 8px 8px 0 0; 
-            padding: 8px 16px; 
-            cursor: pointer !important;
-        }
-        .stTabs [aria-selected="true"] { 
-            background-color: #0f172a !important; 
-            color: white !important; 
-        }
+        [data-testid="stSidebarCollapseButton"] { background-color: #f1f5f9 !important; border-radius: 8px !important; cursor: pointer !important; }
+        .stButton>button { background: #0f172a; color: white !important; border-radius: 10px; padding: 14px; font-weight: 600; width: 100%; transition: all 0.3s ease; }
+        .stButton>button:hover { background: #1e293b; }
+        .stTabs [data-baseweb="tab"] { height: 45px; background-color: #f1f5f9; border-radius: 8px 8px 0 0; padding: 8px 16px; cursor: pointer !important; }
+        .stTabs [aria-selected="true"] { background-color: #0f172a !important; color: white !important; }
     </style>
 """, unsafe_allow_html=True)
 
-# --- SIDEBAR (Varsayılan Dil English yapıldı) ---
+# --- SIDEBAR ---
 with st.sidebar:
     logo_img = load_logo("Salija_AI_Transparent_Logo.png")
     if logo_img: st.image(logo_img, use_container_width=True)
     else: st.markdown("<h2 style='text-align:center; color:#0f172a;'>SALIJA AI</h2>", unsafe_allow_html=True)
     
-    # index=0 yapılarak liste başındaki English seçildi
     current_ui_lang = st.selectbox("🌐 Interface", list(ui_languages.keys()), index=0) 
     t = ui_languages[current_ui_lang]
     
@@ -392,16 +358,17 @@ if uploaded_files:
             elif "SECTION_3" in p: sec3 = p.replace("SECTION_3", "").strip()
             elif "SECTION_4" in p: sec4 = p.replace("SECTION_4", "").strip()
 
-        tab1, tab2, tab3, tab4 = st.tabs(["📝 Ana İlan", "📱 Sosyal Medya", "🎬 Video", "⚙️ Teknik Detay"])
+        # DINAMIK SEKME BAŞLIKLARI
+        tab1, tab2, tab3, tab4 = st.tabs([t["tab_main"], t["tab_social"], t["tab_video"], t["tab_tech"]])
         
         with tab1:
-            res_ana = st.text_area("Pazarlama Metni", value=sec1 if sec1 else raw_text, height=400, key="txt_ana")
+            res_ana = st.text_area(t["label_main"], value=sec1 if sec1 else raw_text, height=400, key="txt_ana")
         with tab2:
-            res_sosyal = st.text_area("Sosyal Medya", value=sec2, height=400, key="txt_sosyal")
+            res_sosyal = st.text_area(t["label_social"], value=sec2, height=400, key="txt_sosyal")
         with tab3:
-            res_video = st.text_area("Video Script", value=sec3, height=400, key="txt_video")
+            res_video = st.text_area(t["label_video"], value=sec3, height=400, key="txt_video")
         with tab4:
-            res_teknik = st.text_area("Teknik Özellikler", value=sec4, height=400, key="txt_teknik")
+            res_teknik = st.text_area(t["label_tech"], value=sec4, height=400, key="txt_teknik")
         
         c1, c2 = st.columns(2)
         with c1:
@@ -412,7 +379,3 @@ if uploaded_files:
             st.download_button(t["download"], data=st.session_state.uretilen_ilan, file_name="salija_ai_kit.txt")
 else:
     st.info(t["empty"])
-
-
-
-
