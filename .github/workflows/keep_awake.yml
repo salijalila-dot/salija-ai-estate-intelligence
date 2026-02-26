@@ -1,0 +1,14 @@
+name: Keep Salija AI Awake
+
+on:
+  schedule:
+    # Her 6 saatte bir (Günde 4 kez) çalışır, siteyi hep taze tutar.
+    - cron: '0 */6 * * *'
+  workflow_dispatch: # İstediğinde elle çalıştırma butonu ekler.
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wake up call
+        run: curl -I https://salija-ai-estate-intelligence.streamlit.app/
