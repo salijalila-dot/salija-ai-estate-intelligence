@@ -2,8 +2,8 @@ name: Keep Salija AI Awake
 
 on:
   schedule:
-    # Her 6 saatte bir (Günde 4 kez) çalışır, siteyi hep taze tutar.
-    - cron: '0 */6 * * *'
+    # Her 30 dakikada bir çalışır, siteyi hep taze tutar.
+    - cron: '*/30 * * * *'
   workflow_dispatch: # İstediğinde elle çalıştırma butonu ekler.
 
 jobs:
