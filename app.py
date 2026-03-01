@@ -63,7 +63,7 @@ ui_languages = {
     },
     "Português": { 
         "title": f"{BRAND_NAME} | Inteligência Imobiliária", "service_desc": "Análise Visual de Imóveis com IA", "subtitle": "Converta visuais em obras-primas de marketing.",
-        "settings": "⚙️ Configuração", "target_lang": "✍️ Escrever em...", "prop_type": "Tipo de Imóvel", "price": "Preço", "location": "Localização", "tone": "Estratégia",
+        "settings": "⚙️ Configuração", "target_lang": "✍️ Escrever em...", "prop_type": "Tipo de Imóvel", "price": "Preço", "location": "Localização", "tone": "Estrategia",
         "tones": ["Ultra-Luxo", "Investimento", "Minimalista", "Família", "Padrão"],
         "btn": f"🚀 GERAR {BRAND_NAME}", "upload_label": "📸 Enviar Fotos", "loading": "Gerando...", "empty": "Aguardando fotos.",
         "tab_main": "📝 Anúncio", "tab_social": "📱 Redes", "tab_video": "🎬 Vídeo", "tab_tech": "⚙️ Detalhes", "download": "📥 Exportar", "download_tab": "📥 Baixar", "error": "Erro:"
@@ -95,7 +95,7 @@ ui_languages = {
 for key, val in [("uretilen_ilan", ""), ("prop_type", "Luxury Property"), ("price", "Price Upon Request"), ("location", "Global"), ("tone", "Ultra-Luxury"), ("custom_inst", ""), ("target_lang_input", "English")]:
     if key not in st.session_state: st.session_state[key] = val
 
-# --- TASARIM --- 
+# --- TASARIM (Key_double_arrow_right fix eklendi) --- 
 st.markdown(f""" 
     <style> 
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap'); 
@@ -104,6 +104,14 @@ st.markdown(f"""
         .block-container {{ background: white; padding: 3rem !important; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.04); margin-top: 2rem; border: 1px solid #e2e8f0; }} 
         h1 {{ color: #0f172a !important; font-weight: 800 !important; text-align: center; }} 
         .stButton>button {{ background: #0f172a; color: white !important; border-radius: 10px; width: 100%; height: 3.5rem; font-weight: 600; }}
+        
+        /* HATA DÜZELTME: Sidebar butonundaki metni gizle */
+        [data-testid="stSidebarCollapseButton"] div {{
+            font-size: 0px !important;
+        }}
+        [data-testid="stSidebarCollapseButton"] svg {{
+            font-size: 1rem !important;
+        }}
     </style> 
 """, unsafe_allow_html=True) 
 
