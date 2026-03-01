@@ -75,7 +75,7 @@ ui_languages = {
         "service_desc": "Inteligência Visual Imobiliária e Automação de Vendas Globais", 
         "subtitle": "Transforme fotos em anúncios premium, kits de redes sociais, roteiros de vídeo e fichas técnicas.",
         "settings": "⚙️ Configuração", "target_lang": "✍️ Escrever em...", "prop_type": "Tipo de Imóvel", "price": "Preço de Mercado", "location": "Localização", "tone": "Estrategia",
-        "tones": ["Ultra-Luxo", "Potencial de Investimento", "Minimalista Moderno", "Conforto Familiar", "Profissional Padrão"],
+        "tones": ["Ultra-Luxo", "Potencial de Inversión", "Minimalista Moderno", "Conforto Familiar", "Profissional Padrão"],
         "custom_inst": "📝 Notas Especiais", "custom_inst_ph": "Ex: Tetos altos, perto do metrô...", "btn": "🚀 GERAR ATIVOS DE MARKETING COMPLETOS", "upload_label": "📸 Enviar Fotos Aqui",
         "result": "💎 Pré-visualização Executiva", "loading": "Preparando seu ecossistema de marketing...", "empty": "Aguardando imagens para análise.", "download": "📥 Exportar TXT", "save_btn": "💾 Salvar Alterações", "saved_msg": "✅ Salvo!", "error": "Erro:",
         "tab_main": "📝 Anúncio Premium", "tab_social": "📱 Kit Redes Sociais", "tab_video": "🎬 Roteiros de Vídeo", "tab_tech": "⚙️ Detalhes", "label_main": "Texto de Vendas", "label_social": "Conteúdo Social", "label_video": "Script de Vídeo", "label_tech": "Especificações Técnicas"
@@ -147,7 +147,8 @@ st.markdown("""
 
 # --- SIDEBAR --- 
 with st.sidebar: 
-    logo_img = load_logo("Salija_AI_Transparent_Logo.png") 
+    # LOGO DOSYA ADI GÜNCELLENDİ
+    logo_img = load_logo("SarSa_Logo_Transparent.png") 
     if logo_img: st.image(logo_img, use_container_width=True) 
     else: st.markdown("<h2 style='text-align:center; color:#0f172a;'>SARSA AI</h2>", unsafe_allow_html=True) 
       
