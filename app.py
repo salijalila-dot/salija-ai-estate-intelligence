@@ -163,13 +163,43 @@ st.markdown("""
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap'); 
         html, body, [class*="st-"] { font-family: 'Plus Jakarta Sans', sans-serif; } 
         .stApp { background-color: #f8fafc; } 
+        
+        /* Butonları Güzelleştir ve Parmak İmleci Ekle */
+        .stButton>button { 
+            background: #0f172a; 
+            color: white !important; 
+            border-radius: 10px; 
+            padding: 12px; 
+            font-weight: 600; 
+            width: 100%; 
+            border: none; 
+            cursor: pointer !important; /* İşte o parmak imleci! */
+            transition: all 0.3s ease;
+        }
+        
+        .stButton>button:hover { 
+            background: #1e293b; 
+            transform: translateY(-2px); /* Üzerine gelince hafif yükselme efekti */
+        } 
+
+        /* Yan menüdeki (Sidebar) butonları ve yazılarını düzelt */
+        [data-testid="stSidebar"] .stButton>button {
+            background: #f1f5f9;
+            color: #0f172a !important;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Giriş alanlarını temizle */
         div[data-testid="stInputInstructions"] { display: none !important; }
-        .block-container { background: white; padding: 3rem !important; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; } 
-        h1 { color: #0f172a !important; font-weight: 800 !important; text-align: center; } 
-        .stButton>button { background: #0f172a; color: white !important; border-radius: 10px; padding: 12px; font-weight: 600; width: 100%; border: none; cursor: pointer; }
-        .stButton>button:hover { background: #1e293b; } 
+        .block-container { 
+            background: white; 
+            padding: 3rem !important; 
+            border-radius: 20px; 
+            box-shadow: 0 15px 45px rgba(0,0,0,0.04); 
+            border: 1px solid #e2e8f0; 
+        } 
     </style> 
-""", unsafe_allow_html=True) 
+""", unsafe_allow_html=True)
 
 # --- SIDEBAR --- 
 with st.sidebar: 
@@ -247,3 +277,4 @@ if uploaded_files:
             st.download_button(t["pdf_btn"], data=pdf_data, file_name="SarSa_AI_Report.pdf", mime="application/pdf")
 else: 
     st.info(t["empty"])
+
