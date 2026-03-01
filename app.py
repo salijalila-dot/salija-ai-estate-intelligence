@@ -34,7 +34,7 @@ ui_languages = {
         "tones": ["Ultra-Lüks", "Yatırım Potansiyeli", "Modern Minimalist", "Aile Konforu", "Standart Profesyonel"],
         "custom_inst": "📝 Özel Notlar", "custom_inst_ph": "Örn: Yüksek tavanlar, metroya yakın...", "btn": "🚀 ELİT METİN OLUŞTUR", "upload_label": "📸 Fotoğrafları Buraya Bırakın",
         "result": "💎 Yönetici Önizlemesi", "loading": "İlanınız yazılıyor...", "empty": "Analiz için görsel bekleniyor.", "download": "📥 TXT Olarak İndir", "save_btn": "💾 Kaydet", "saved_msg": "✅ Kaydedildi!", "error": "Hata:",
-        "tab_main": "📝 Ana İlan", "tab_social": "📱 Sosyal Medya", "tab_video": "🎬 Video", "tab_tech": "Özel Detay", "label_main": "Pazarlama Metni", "label_social": "Sosyal Medya", "label_video": "Video Script", "label_tech": "Teknik Özellikler"
+        "tab_main": "📝 Ana İlan", "tab_social": "📱 Sosyal Medya", "tab_video": "🎬 Video", "tab_tech": "⚙️ Teknik Detay", "label_main": "Pazarlama Metni", "label_social": "Sosyal Medya", "label_video": "Video Script", "label_tech": "Teknik Özellikler"
     },
     "Español": { 
         "title": "SarSa AI | Inteligencia Inmobiliaria", "service_desc": "Motor de Redacción y Análisis Visual de Propiedades con IA", "subtitle": "Convierta visuales de propiedades en obras maestras de marketing.",
@@ -57,7 +57,7 @@ ui_languages = {
         "settings": "⚙️ Configuration", "target_lang": "✍️ Rédiger en...", "prop_type": "Type de Bien", "price": "Prix du Marché", "location": "Localisation", "tone": "Stratégie",
         "tones": ["Ultra-Luxe", "Potentiel d'Investissement", "Minimaliste Moderne", "Confort Familial", "Standard Pro"],
         "custom_inst": "📝 Notes Spéciales", "custom_inst_ph": "Ex: Plafonds hauts, proche métro...", "btn": "🚀 GÉNÉRER TEXTE ÉLITE", "upload_label": "📸 Déposer les Photos Ici",
-        "result": "💎 Aperçu Exécutif", "loading": "Rédaction de votre annonce...", "empty": "En attente d'images pour analyse.", "download": "📥 Exporter TXT", "save_btn": "💾 Enregistrer", "saved_msg": "✅ Enregistré !", "error": "Erreur :",
+        "result": "💎 Aperçu Exécutif", "loading": "Rédaction de votre annonce...", "empty": "En attente d'images para analiz.", "download": "📥 Exporter TXT", "save_btn": "💾 Enregistrer", "saved_msg": "✅ Enregistré !", "error": "Erreur :",
         "tab_main": "📝 Annonce", "tab_social": "📱 Réseaux Sociaux", "tab_video": "🎬 Vidéo", "tab_tech": "⚙️ Détails", "label_main": "Texte Marketing", "label_social": "Contenu Social", "label_video": "Script Vidéo", "label_tech": "Spécifications"
     },
     "Português": { 
@@ -98,7 +98,7 @@ ui_languages = {
 for key, val in [("uretilen_ilan", ""), ("prop_type", "Ultra-Luxury Apartment"), ("price", "£14,500,000"), ("location", "Mayfair, London"), ("tone", "Ultra-Luxury"), ("custom_inst", ""), ("target_lang_input", "English")]:
     if key not in st.session_state: st.session_state[key] = val
 
-# --- CSS (MARKAYA ÖZEL STİL) --- 
+# --- CSS (MARKAYA ÖZEL STİL VE İMLEÇ DÜZELTMESİ) --- 
 st.markdown(""" 
     <style> 
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap'); 
@@ -110,12 +110,19 @@ st.markdown("""
         .block-container { background: white; padding: 3rem !important; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.04); margin-top: 2rem; border: 1px solid #e2e8f0; } 
         h1 { color: #0f172a !important; font-weight: 800 !important; text-align: center; } 
          
-        /* İMLEÇ VE BUTONLAR */
-        button, [data-baseweb="tab"], [data-testid="stFileUploader"], div[data-baseweb="select"] { cursor: pointer !important; }
+        /* --- KRİTİK İMLEÇ AYARLARI --- */
+        /* Butonlar, Sekmeler, Dosya Yükleyici ve SEÇMELİ KUTUCUKLAR için işaret parmağı */
+        button, [data-baseweb="tab"], [data-testid="stFileUploader"], 
+        div[data-baseweb="select"], div[role="button"], .stSelectbox div { 
+            cursor: pointer !important; 
+        }
         
+        /* Yazı alanları için normal yazı imleci kalsın */
+        .stTextInput input, .stTextArea textarea { cursor: text !important; }
+
         /* SIDEBAR OKU */
         span[data-testid="stIconMaterial"] { font-size: 0px !important; color: transparent !important; }
-        span[data-testid="stIconMaterial"]::before { content: "⬅️" !important; font-size: 18px !important; color: #0f172a !important; visibility: visible !important; display: block !important; }
+        span[data-testid="stIconMaterial"]::before { content: "⬅️" !important; font-size: 18px !important; color: #0f172a !important; visibility: visible !important; display: block !important; cursor: pointer !important; }
 
         .stButton>button { background: #0f172a; color: white !important; border-radius: 10px; padding: 14px; font-weight: 600; width: 100%; border: none; }
         .stButton>button:hover { background: #1e293b; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
