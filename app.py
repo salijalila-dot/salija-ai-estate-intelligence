@@ -85,9 +85,9 @@ ui_languages = {
     "العربية": { 
         "title": f"{BRAND_NAME} | ذكاء العقارات", "service_desc": "تحليل الصور العقارية بالذكاء الاصطناعي", "subtitle": "حول صور العقارات إلى تحف تسويقية.",
         "settings": "⚙️ الإعدادات", "target_lang": "✍️ لغة الكتابة...", "prop_type": "نوع العقار", "price": "السعر", "location": "الموقع", "tone": "الاستراتيجية",
-        "tones": ["فخامة فائقة", "إمكانات استثمارية", "عصري بسيط", "راحة عائلية", "احترافي"],
+        "tones": ["فخامة فائقة", "إمكانات استثمارية", "عصري بسيط", "راحة عائلية", "احتraفي"],
         "btn": f"🚀 إنشاء {BRAND_NAME}", "upload_label": "📸 ضع الصور هنا", "loading": "جاري الصياغة...", "empty": "بانتظار الصور.",
-        "tab_main": "📝 الإعلان", "tab_social": "📱 التواصل", "tab_video": "🎬 فيديو", "tab_tech": "⚙️ تفاصيل", "download": "📥 تصدير الكل", "download_tab": "📥 تنزيل القسم", "error": "خطأ:"
+        "tab_main": "📝 الإعلان", "tab_social": "📱 التواصل", "tab_video": "🎬 فيديو", "tab_tech": "⚙️ تفاصيل", "download": "📥 تصdير الكل", "download_tab": "📥 تنزيل القسم", "error": "خطأ:"
     }
 } 
 
@@ -95,7 +95,7 @@ ui_languages = {
 for key, val in [("uretilen_ilan", ""), ("prop_type", "Luxury Property"), ("price", "Price Upon Request"), ("location", "Global"), ("tone", "Ultra-Luxury"), ("custom_inst", ""), ("target_lang_input", "English")]:
     if key not in st.session_state: st.session_state[key] = val
 
-# --- TASARIM (HATAYI KÖKTEN ÇÖZEN GÜÇLÜ CSS) --- 
+# --- TASARIM (Çalışan Emoji Yöntemi) --- 
 st.markdown(f""" 
     <style> 
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap'); 
@@ -105,22 +105,20 @@ st.markdown(f"""
         h1 {{ color: #0f172a !important; font-weight: 800 !important; text-align: center; }} 
         .stButton>button {{ background: #0f172a; color: white !important; border-radius: 10px; width: 100%; height: 3.5rem; font-weight: 600; }}
         
-        /* 🎯 KESİN ÇÖZÜM: Hatalı metni gizle ve simgeyi düzelt */
-        [data-testid="stSidebarCollapseButton"] {{
-            visibility: hidden; /* Butonu gizle ama yerini koru */
+        /* 🎯 SIDEBAR İKON DÜZELTME: Eski çalışan emoji yöntemi */
+        span[data-testid="stIconMaterial"] {{
+            visibility: hidden !important;
         }}
-        [data-testid="stSidebarCollapseButton"]::after {{
-            content: "▶"; /* Yerine basit bir ok koy */
-            visibility: visible;
-            display: block;
-            font-size: 1.5rem;
-            color: #0f172a;
-            padding: 5px;
-            cursor: pointer;
+        span[data-testid="stIconMaterial"]::before {{
+            content: "➡️" !important;
+            visibility: visible !important;
+            font-size: 20px !important;
+            display: block !important;
+            color: #0f172a !important;
         }}
-        /* Sidebar açıkken oku çevir */
-        [data-testid="stSidebar"][aria-expanded="true"] ~ section [data-testid="stSidebarCollapseButton"]::after {{
-            content: "◀";
+        /* Sidebar açıkken oku sola çevir */
+        [data-testid="stSidebar"][aria-expanded="true"] ~ section span[data-testid="stIconMaterial"]::before {{
+            content: "⬅️" !important;
         }}
     </style> 
 """, unsafe_allow_html=True) 
