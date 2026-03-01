@@ -62,7 +62,7 @@ ui_languages = {
         "tab_main": "📝 Annonce", "tab_social": "📱 Réseaux", "tab_video": "🎬 Vidéo", "tab_tech": "⚙️ Détails", "download": "📥 Tout Exporter", "download_tab": "📥 Télécharger", "error": "Erreur:"
     },
     "Português": { 
-        "title": f"{BRAND_NAME} | Inteligência Inmobiliária", "service_desc": "Análise Visual de Imóveis com IA", "subtitle": "Converta visuais em obras-primas de marketing.",
+        "title": f"{BRAND_NAME} | Inteligência Imobiliária", "service_desc": "Análise Visual de Imóveis com IA", "subtitle": "Converta visuais em obras-primas de marketing.",
         "settings": "⚙️ Configuração", "target_lang": "✍️ Escrever em...", "prop_type": "Tipo de Imóvel", "price": "Preço", "location": "Localização", "tone": "Estratégia",
         "tones": ["Ultra-Luxo", "Investimento", "Minimalista", "Família", "Padrão"],
         "btn": f"🚀 GERAR {BRAND_NAME}", "upload_label": "📸 Enviar Fotos", "loading": "Gerando...", "empty": "Aguardando fotos.",
@@ -95,7 +95,7 @@ ui_languages = {
 for key, val in [("uretilen_ilan", ""), ("prop_type", "Luxury Property"), ("price", "Price Upon Request"), ("location", "Global"), ("tone", "Ultra-Luxury"), ("custom_inst", ""), ("target_lang_input", "English")]:
     if key not in st.session_state: st.session_state[key] = val
 
-# --- TASARIM (Yazıyı kökten silen CSS) --- 
+# --- TASARIM (HATAYI KÖKTEN ÇÖZEN GÜÇLÜ CSS) --- 
 st.markdown(f""" 
     <style> 
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap'); 
@@ -105,14 +105,22 @@ st.markdown(f"""
         h1 {{ color: #0f172a !important; font-weight: 800 !important; text-align: center; }} 
         .stButton>button {{ background: #0f172a; color: white !important; border-radius: 10px; width: 100%; height: 3.5rem; font-weight: 600; }}
         
-        /* 🎯 SIDEBAR OKU DÜZELTME: Yazıyı tamamen uçurur, sadece ikonu bırakır */
+        /* 🎯 KESİN ÇÖZÜM: Hatalı metni gizle ve simgeyi düzelt */
         [data-testid="stSidebarCollapseButton"] {{
-            color: transparent !important;
+            visibility: hidden; /* Butonu gizle ama yerini koru */
         }}
-        [data-testid="stSidebarCollapseButton"] svg {{
-            color: #0f172a !important;
-            width: 20px !important;
-            height: 20px !important;
+        [data-testid="stSidebarCollapseButton"]::after {{
+            content: "▶"; /* Yerine basit bir ok koy */
+            visibility: visible;
+            display: block;
+            font-size: 1.5rem;
+            color: #0f172a;
+            padding: 5px;
+            cursor: pointer;
+        }}
+        /* Sidebar açıkken oku çevir */
+        [data-testid="stSidebar"][aria-expanded="true"] ~ section [data-testid="stSidebarCollapseButton"]::after {{
+            content: "◀";
         }}
     </style> 
 """, unsafe_allow_html=True) 
