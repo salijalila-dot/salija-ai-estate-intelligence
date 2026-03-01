@@ -10,7 +10,7 @@ MODEL_NAME = 'gemini-2.5-flash'
 model = genai.GenerativeModel(MODEL_NAME) 
 
 # --- SAYFA AYARLARI --- 
-st.set_page_config(page_title="SarSa AI | Global Estate Intelligence", page_icon="🏢", layout="wide") 
+st.set_page_config(page_title="SarSa AI | Real Estate Analysis & Marketing Engine", page_icon="🏢", layout="wide") 
 
 # --- HIZLANDIRICI --- 
 @st.cache_data 
@@ -18,97 +18,97 @@ def load_logo(file_path):
     if os.path.exists(file_path): return Image.open(file_path) 
     return None 
 
-# --- GLOBAL DİL SİSTEMİ (TEKNİK & SAAS ODAKLI GÜNCELLEME) --- 
+# --- GLOBAL DİL SİSTEMİ (STRETEJİK & AKILDA KALICI GÜNCELLEME) --- 
 ui_languages = { 
     "English": { 
-        "title": "SarSa AI | Global Estate Intelligence Hub", 
-        "service_desc": "Multimodal Neural Property Analysis & Full-Stack Marketing Engine", 
-        "subtitle": "Beyond listings: Generate high-performance social media kits, cinematic video scripts, and technical specifications from visual data.",
+        "title": "SarSa AI | Real Estate Analysis & Marketing Engine", 
+        "service_desc": "All-in-One Visual Property Intelligence & Global Sales Automation", 
+        "subtitle": "Transform property photos into premium listings, social media kits, cinematic video scripts, and technical data sheets instantly.",
         "settings": "⚙️ Configuration", "target_lang": "✍️ Write Listing In...", "prop_type": "Property Type", "price": "Market Price", "location": "Location", "tone": "Strategy",
         "tones": ["Ultra-Luxury", "Investment Potential", "Modern Minimalist", "Family Comfort", "Standard Pro"],
-        "custom_inst": "📝 Special Notes", "custom_inst_ph": "E.g., High ceilings, near metro...", "btn": "🚀 GENERATE MULTICHANNEL ASSETS", "upload_label": "📸 Drop Property Photos Here",
-        "result": "💎 Executive Preview", "loading": "Architecting your marketing ecosystem...", "empty": "Awaiting visuals to start neural analysis.", "download": "📥 Export TXT", "save_btn": "💾 Save Changes", "saved_msg": "✅ Saved!", "error": "Error:",
-        "tab_main": "📝 Main Listing", "tab_social": "📱 Social Media Kit", "tab_video": "🎬 Video Scripts", "tab_tech": "⚙️ Technical Specs", "label_main": "Marketing Copy", "label_social": "Social Media Content", "label_video": "Video Script", "label_tech": "Technical Specs"
+        "custom_inst": "📝 Special Notes", "custom_inst_ph": "E.g., High ceilings, near metro...", "btn": "🚀 GENERATE COMPLETE MARKETING ASSETS", "upload_label": "📸 Drop Property Photos Here",
+        "result": "💎 Executive Preview", "loading": "Crafting your premium marketing ecosystem...", "empty": "Awaiting visuals to start professional analysis.", "download": "📥 Export TXT", "save_btn": "💾 Save Changes", "saved_msg": "✅ Saved!", "error": "Error:",
+        "tab_main": "📝 Prime Listing", "tab_social": "📱 Social Media Kit", "tab_video": "🎬 Video Scripts", "tab_tech": "⚙️ Technical Specs", "label_main": "Sales Copy", "label_social": "Social Media Content", "label_video": "Video Script", "label_tech": "Technical Specifications"
     }, 
     "Türkçe": { 
-        "title": "SarSa AI | Küresel Emlak Zekası Merkezi", 
-        "service_desc": "Çok Modelli Sinirsel Mülk Analizi ve Tam Kapsamlı Pazarlama Motoru", 
-        "subtitle": "İlanın ötesinde: Görsel verilerden yüksek performanslı sosyal medya kitleri, sinematik video senaryoları ve teknik şartnameler oluşturun.",
+        "title": "SarSa AI | Gayrimenkul Analiz ve Pazarlama Motoru", 
+        "service_desc": "Hepsi Bir Arada Görsel Mülk Zekası ve Küresel Satış Otomasyonu", 
+        "subtitle": "Mülk fotoğraflarını anında profesyonel ilanlara, sosyal medya kitlerine, sinematik video senaryolarına ve teknik şartnamelere dönüştürün.",
         "settings": "⚙️ Yapılandırma", "target_lang": "✍️ İlan Yazım Dili...", "prop_type": "Emlak Tipi", "price": "Pazar Fiyatı", "location": "Konum", "tone": "Strateji",
         "tones": ["Ultra-Lüks", "Yatırım Potansiyeli", "Modern Minimalist", "Aile Konforu", "Standart Profesyonel"],
-        "custom_inst": "📝 Özel Notlar", "custom_inst_ph": "Örn: Yüksek tavanlar, metroya yakın...", "btn": "🚀 ÇOK KANALLI VARLIKLARI OLUŞTUR", "upload_label": "📸 Fotoğrafları Buraya Bırakın",
-        "result": "💎 Yönetici Önizlemesi", "loading": "Pazarlama ekosisteminiz inşa ediliyor...", "empty": "Sinirsel analiz için görsel bekleniyor.", "download": "📥 TXT Olarak İndir", "save_btn": "💾 Kaydet", "saved_msg": "✅ Kaydedildi!", "error": "Hata:",
-        "tab_main": "📝 Ana İlan", "tab_social": "📱 Sosyal Medya Kiti", "tab_video": "🎬 Video Senaryoları", "tab_tech": "⚙️ Teknik Detay", "label_main": "Pazarlama Metni", "label_social": "Sosyal Medya", "label_video": "Video Script", "label_tech": "Teknik Özellikler"
+        "custom_inst": "📝 Özel Notlar", "custom_inst_ph": "Örn: Yüksek tavanlar, metroya yakın...", "btn": "🚀 TÜM PAZARLAMA VARLIKLARINI OLUŞTUR", "upload_label": "📸 Fotoğrafları Buraya Bırakın",
+        "result": "💎 Yönetici Önizlemesi", "loading": "Premium pazarlama ekosisteminiz hazırlanıyor...", "empty": "Profesyonel analiz için görsel bekleniyor.", "download": "📥 TXT Olarak İndir", "save_btn": "💾 Kaydet", "saved_msg": "✅ Kaydedildi!", "error": "Hata:",
+        "tab_main": "📝 Ana İlan", "tab_social": "📱 Sosyal Medya Kiti", "tab_video": "🎬 Video Senaryoları", "tab_tech": "⚙️ Teknik Özellikler", "label_main": "Satış Metni", "label_social": "Sosyal Medya", "label_video": "Video Script", "label_tech": "Teknik Detaylar"
     },
     "Español": { 
-        "title": "SarSa AI | Centro de Inteligencia Inmobiliaria", 
-        "service_desc": "Análisis Multimodal de Propiedades y Motor de Marketing Integral", 
-        "subtitle": "Más que anuncios: Genere kits de redes sociales, guiones de video y especificaciones técnicas a partir de datos visuales.",
+        "title": "SarSa AI | Motor de Marketing y Análisis Inmobiliario", 
+        "service_desc": "Inteligencia Visual de Propiedades y Automatización de Ventas Globales", 
+        "subtitle": "Convierta fotos en anuncios premium, kits de redes sociales, guiones de video y fichas técnicas al instante.",
         "settings": "⚙️ Configuración", "target_lang": "✍️ Escribir en...", "prop_type": "Tipo de Propiedad", "price": "Precio de Mercado", "location": "Ubicación", "tone": "Estrategia",
         "tones": ["Ultra-Lujo", "Potencial de Inversión", "Minimalista Moderno", "Confort Familiar", "Profesional Estándar"],
-        "custom_inst": "📝 Notas Especiales", "custom_inst_ph": "Ej: Techos altos, cerca del metro...", "btn": "🚀 GENERAR ACTIVOS MULTICANAL", "upload_label": "📸 Subir Fotos Aquí",
-        "result": "💎 Vista Previa Ejecutiva", "loading": "Arquitectando su ecosistema de marketing...", "empty": "Esperando imágenes para análisis neuronal.", "download": "📥 Exportar TXT", "save_btn": "💾 Guardar Cambios", "saved_msg": "✅ ¡Guardado!", "error": "Error:",
-        "tab_main": "📝 Anuncio", "tab_social": "📱 Kit de Redes", "tab_video": "🎬 Guiones de Video", "tab_tech": "⚙️ Detalles", "label_main": "Texto de Marketing", "label_social": "Contenido Social", "label_video": "Guion de Video", "label_tech": "Especificaciones"
+        "custom_inst": "📝 Notas Especiales", "custom_inst_ph": "Ej: Techos altos, cerca del metro...", "btn": "🚀 GENERAR ACTIVOS DE MARKETING COMPLETOS", "upload_label": "📸 Subir Fotos Aquí",
+        "result": "💎 Vista Previa Ejecutiva", "loading": "Creando su ecosistema de marketing...", "empty": "Esperando imágenes para análisis profesional.", "download": "📥 Exportar TXT", "save_btn": "💾 Guardar Cambios", "saved_msg": "✅ ¡Guardado!", "error": "Error:",
+        "tab_main": "📝 Anuncio Premium", "tab_social": "📱 Kit de Redes", "tab_video": "🎬 Guiones de Video", "tab_tech": "⚙️ Especificaciones", "label_main": "Texto de Ventas", "label_social": "Contenido Social", "label_video": "Guion de Video", "label_tech": "Ficha Técnica"
     },
     "Deutsch": { 
-        "title": "SarSa AI | Immobilien-Intelligenz Zentrum", 
-        "service_desc": "Multimodale KI-Objektanalyse & Full-Stack Marketing-Engine", 
-        "subtitle": "Mehr als Exposés: Erstellen Sie Social-Media-Kits, Videoskripte und technische Datenblätter aus visuellen Daten.",
+        "title": "SarSa AI | Immobilienanalyse & Marketing-Plattform", 
+        "service_desc": "All-in-One Visuelle Objektintelligenz & Globale Verkaufsautomatisierung", 
+        "subtitle": "Verwandeln Sie Fotos sofort in Premium-Exposés, Social-Media-Kits, Videoskripte und Datenblätter.",
         "settings": "⚙️ Konfiguration", "target_lang": "✍️ Erstellen in...", "prop_type": "Objekttyp", "price": "Marktpreis", "location": "Standort", "tone": "Strategie",
         "tones": ["Ultra-Luxus", "Investitionspotenzial", "Modern-Minimalistisch", "Familienkomfort", "Standard-Profi"],
-        "custom_inst": "📝 Notizen", "custom_inst_ph": "Z.B. Hohe Decken, U-Bahn-Nähe...", "btn": "🚀 MULTICHANNEL-ASSETS ERSTELLEN", "upload_label": "📸 Fotos hier hochladen",
-        "result": "💎 Executive-Vorschau", "loading": "Erstelle Ihr Marketing-Ökosystem...", "empty": "Warte auf Bilder zur Analyse.", "download": "📥 TXT Exportieren", "save_btn": "💾 Speichern", "saved_msg": "✅ Gespeichert!", "error": "Fehler:",
-        "tab_main": "📝 Exposé", "tab_social": "📱 Social Media Kit", "tab_video": "🎬 Videoskripte", "tab_tech": "⚙️ Daten", "label_main": "Marketing-Text", "label_social": "Social Media Content", "label_video": "Video-Skript", "label_tech": "Technische Daten"
+        "custom_inst": "📝 Notizen", "custom_inst_ph": "Z.B. Hohe Decken, U-Bahn-Nähe...", "btn": "🚀 KOMPLETTE MARKETING-ASSETS ERSTELLEN", "upload_label": "📸 Fotos hier hochladen",
+        "result": "💎 Executive-Vorschau", "loading": "Ihr Marketing-Ökosystem wird erstellt...", "empty": "Warte auf Bilder für die Analyse.", "download": "📥 TXT Exportieren", "save_btn": "💾 Speichern", "saved_msg": "✅ Gespeichert!", "error": "Fehler:",
+        "tab_main": "📝 Premium-Exposé", "tab_social": "📱 Social Media Kit", "tab_video": "🎬 Videoskripte", "tab_tech": "⚙️ Tech-Details", "label_main": "Verkaufstext", "label_social": "Social Media Content", "label_video": "Video-Skript", "label_tech": "Technische Daten"
     },
     "Français": { 
-        "title": "SarSa AI | Centre d'Intelligence Immobilière", 
-        "service_desc": "Analyse Multimodale et Moteur de Marketing Immobilier Complet", 
-        "subtitle": "Au-delà des annonces : Générez des kits réseaux sociaux, des scripts vidéo et des fiches techniques.",
+        "title": "SarSa AI | Moteur d'Analyse et de Marketing Immobilier", 
+        "service_desc": "Intelligence Visuelle Immobilière et Automatisation des Ventes Globales", 
+        "subtitle": "Transformez vos photos en annonces premium, kits réseaux sociaux, scripts vidéo et fiches techniques.",
         "settings": "⚙️ Configuration", "target_lang": "✍️ Rédiger en...", "prop_type": "Type de Bien", "price": "Prix du Marché", "location": "Localisation", "tone": "Stratégie",
-        "tones": ["Ultra-Luxe", "Potentiel d'Investissement", "Minimaliste Moderne", "Confort Familial", "Standard Pro"],
-        "custom_inst": "📝 Notes Spéciales", "custom_inst_ph": "Ex: Plafonds hauts, proche métro...", "btn": "🚀 GÉNÉRER ACTIFS MULTICANAUX", "upload_label": "📸 Déposer les Photos Ici",
-        "result": "💎 Aperçu Exécutif", "loading": "Création de votre écosystème marketing...", "empty": "En attente d'images pour analyse neurale.", "download": "📥 Exporter TXT", "save_btn": "💾 Enregistrer", "saved_msg": "✅ Enregistré !", "error": "Erreur :",
-        "tab_main": "📝 Annonce", "tab_social": "📱 Kit Réseaux Sociaux", "tab_video": "🎬 Scripts Vidéo", "tab_tech": "⚙️ Détails", "label_main": "Texte Marketing", "label_social": "Contenu Social", "label_video": "Script Vidéo", "label_tech": "Spécifications"
+        "tones": ["Ultra-Luxe", "Potentiel d'Investissement", "Minimaliste Moderne", "Confort Familiar", "Standard Pro"],
+        "custom_inst": "📝 Notes Spéciales", "custom_inst_ph": "Ex: Plafonds hauts, proche métro...", "btn": "🚀 GÉNÉRER LES ACTIFS MARKETING COMPLETS", "upload_label": "📸 Déposer les Photos Ici",
+        "result": "💎 Aperçu Exécutif", "loading": "Préparation de votre écosystème marketing...", "empty": "En attente d'images pour analyse.", "download": "📥 Exporter TXT", "save_btn": "💾 Enregistrer", "saved_msg": "✅ Enregistré !", "error": "Erreur :",
+        "tab_main": "📝 Annonce Premium", "tab_social": "📱 Kit Réseaux Sociaux", "tab_video": "🎬 Scripts Vidéo", "tab_tech": "⚙️ Spécifications", "label_main": "Texte de Vente", "label_social": "Contenu Social", "label_video": "Script Vidéo", "label_tech": "Détails Techniques"
     },
     "Português": { 
-        "title": "SarSa AI | Centro de Inteligência Imobiliária", 
-        "service_desc": "Análise Multimodal e Motor de Marketing Imobiliário Integral", 
-        "subtitle": "Além dos anúncios: Gere kits de redes sociais, roteiros de vídeo e especificações técnicas.",
+        "title": "SarSa AI | Motor de Marketing e Análise Imobiliária", 
+        "service_desc": "Inteligência Visual Imobiliária e Automação de Vendas Globais", 
+        "subtitle": "Transforme fotos em anúncios premium, kits de redes sociais, roteiros de vídeo e fichas técnicas.",
         "settings": "⚙️ Configuração", "target_lang": "✍️ Escrever em...", "prop_type": "Tipo de Imóvel", "price": "Preço de Mercado", "location": "Localização", "tone": "Estrategia",
         "tones": ["Ultra-Luxo", "Potencial de Investimento", "Minimalista Moderno", "Conforto Familiar", "Profissional Padrão"],
-        "custom_inst": "📝 Notas Especiais", "custom_inst_ph": "Ex: Tetos altos, perto do metrô...", "btn": "🚀 GERAR ATIVOS MULTICANAL", "upload_label": "📸 Enviar Fotos Aqui",
-        "result": "💎 Pré-visualização Executiva", "loading": "Arquitetando seu ecossistema de marketing...", "empty": "Aguardando imagens para análise.", "download": "📥 Exportar TXT", "save_btn": "💾 Salvar Alterações", "saved_msg": "✅ Salvo!", "error": "Erro:",
-        "tab_main": "📝 Anúncio", "tab_social": "📱 Kit Redes Sociais", "tab_video": "🎬 Roteiros de Vídeo", "tab_tech": "⚙️ Detalhes", "label_main": "Texto de Marketing", "label_social": "Conteúdo Social", "label_video": "Script de Vídeo", "label_tech": "Especificações"
+        "custom_inst": "📝 Notas Especiais", "custom_inst_ph": "Ex: Tetos altos, perto do metrô...", "btn": "🚀 GERAR ATIVOS DE MARKETING COMPLETOS", "upload_label": "📸 Enviar Fotos Aqui",
+        "result": "💎 Pré-visualização Executiva", "loading": "Preparando seu ecossistema de marketing...", "empty": "Aguardando imagens para análise.", "download": "📥 Exportar TXT", "save_btn": "💾 Salvar Alterações", "saved_msg": "✅ Salvo!", "error": "Erro:",
+        "tab_main": "📝 Anúncio Premium", "tab_social": "📱 Kit Redes Sociais", "tab_video": "🎬 Roteiros de Vídeo", "tab_tech": "⚙️ Detalhes", "label_main": "Texto de Vendas", "label_social": "Conteúdo Social", "label_video": "Script de Vídeo", "label_tech": "Especificações Técnicas"
     },
     "日本語": { 
-        "title": "SarSa AI | グローバル不動産インテリジェンス", 
-        "service_desc": "マルチモーダル物件分析＆フルスタックマーケティングエンジン", 
-        "subtitle": "広告作成を超えて：SNSキット、動画台本、技術仕様書をAIが自動生成。",
+        "title": "SarSa AI | 不動産分析＆マーケティングエンジン", 
+        "service_desc": "オールインワン物件インテリジェンス＆グローバル販売自動化", 
+        "subtitle": "物件写真をプレミアム広告、SNSキット、動画台本、技術仕様書に瞬時に変換。",
         "settings": "⚙️ 設定", "target_lang": "✍️ 作成言語...", "prop_type": "物件種別", "price": "市場価格", "location": "所在地", "tone": "戦略",
         "tones": ["ウルトララグジュアリー", "投資ポテンシャル", "モダンミニマリスト", "ファミリーコンフォート", "スタンダードプロ"],
-        "custom_inst": "📝 特記事項", "custom_inst_ph": "例：高い天井、駅近...", "btn": "🚀 マルチチャネル資産を生成", "upload_label": "📸 ここに写真をアップロード",
+        "custom_inst": "📝 特記事項", "custom_inst_ph": "例：高い天井、駅近...", "btn": "🚀 完全なマーケティング資産を生成", "upload_label": "📸 ここに写真をアップロード",
         "result": "💎 エグゼクティブプレビュー", "loading": "マーケティングエコシステムを構築中...", "empty": "分析用の画像を待機中。", "download": "📥 TXT出力", "save_btn": "💾 変更を保存", "saved_msg": "✅ 保存完了！", "error": "エラー:",
-        "tab_main": "📝 メイン広告", "tab_social": "📱 SNSキット", "tab_video": "🎬 動画台本", "tab_tech": "⚙️ 詳細", "label_main": "マーケティングコピー", "label_social": "SNSコンテンツ", "label_video": "動画台本", "label_tech": "技術仕様"
+        "tab_main": "📝 プレミアム広告", "tab_social": "📱 SNSキット", "tab_video": "🎬 動画台本", "tab_tech": "⚙️ 技術仕様", "label_main": "セールスコピー", "label_social": "SNSコンテンツ", "label_video": "動画台本", "label_tech": "技術仕様"
     },
     "中文 (简体)": { 
-        "title": "SarSa AI | 全球房地产智能中心", 
-        "service_desc": "多模态神经房产分析与全栈营销引擎", 
-        "subtitle": "超越房源描述：从视觉数据生成高转化社交媒体包、电影级视频脚本和技术规格。",
+        "title": "SarSa AI | 房地产分析与营销引擎", 
+        "service_desc": "全方位房产视觉智能与全球销售自动化", 
+        "subtitle": "立即将房产照片转化为优质房源描述、社交媒体包、电影级视频脚本和技术规格。",
         "settings": "⚙️ 配置", "target_lang": "✍️ 编写语言...", "prop_type": "房产类型", "price": "市场价格", "location": "地点", "tone": "策略",
         "tones": ["顶奢豪宅", "投资潜力", "现代简约", "家庭舒适", "标准专业"],
-        "custom_inst": "📝 特别备注", "custom_inst_ph": "例如：挑高天花板，靠近地铁...", "btn": "🚀 生成多渠道营销资产", "upload_label": "📸 在此处上传照片",
-        "result": "💎 高管预览", "loading": "正在构思您的营销生态系统...", "empty": "等待图像进行神经分析。", "download": "📥 导出 TXT", "save_btn": "💾 保存更改", "saved_msg": "✅ 已保存！", "error": "错误:",
-        "tab_main": "📝 房源描述", "tab_social": "📱 社交媒体包", "tab_video": "🎬 视频脚本", "tab_tech": "⚙️ 技术细节", "label_main": "营销文案", "label_social": "社媒内容", "label_video": "视频脚本", "label_tech": "技术规格"
+        "custom_inst": "📝 特别备注", "custom_inst_ph": "例如：挑高天花板，靠近地铁...", "btn": "🚀 生成完整营销资产", "upload_label": "📸 在此处上传照片",
+        "result": "💎 高管预览", "loading": "正在打造您的营销生态系统...", "empty": "等待图像进行分析。", "download": "📥 导出 TXT", "save_btn": "💾 保存更改", "saved_msg": "✅ 已保存！", "error": "错误:",
+        "tab_main": "📝 优质房源", "tab_social": "📱 社交媒体包", "tab_video": "🎬 视频脚本", "tab_tech": "⚙️ 技术细节", "label_main": "销售文案", "label_social": "社媒内容", "label_video": "视频脚本", "label_tech": "技术规格"
     },
     "العربية": { 
-        "title": "SarSa AI | مركز ذكاء العقارات العالمي", 
-        "service_desc": "محرك تحليل الصور المتعدد وشامل للتسويق العقاري", 
-        "subtitle": "أكثر من مجرد إعلانات: أنشئ مجموعات التواصل الاجتماعي، سيناريوهات الفيديو، والمواصفات الفنية.",
+        "title": "SarSa AI | محرك تحليل وتسويق العقارات", 
+        "service_desc": "ذكاء العقارات البصري المتكامل وأتمتة المبيعات العالمية", 
+        "subtitle": "حوّل صور العقارات إلى إعلانات مميزة، باقات تواصل اجتماعي، سيناريوهات فيديو، ومواصفات فنية فوراً.",
         "settings": "⚙️ الإعدادات", "target_lang": "✍️ لغة الكتابة...", "prop_type": "نوع العقار", "price": "سعر السوق", "location": "الموقع", "tone": "الاستراتيجية",
         "tones": ["فخامة فائقة", "إمكانات استثمارية", "عصري بسيط", "راحة عائلية", "احترافي قياسي"],
-        "custom_inst": "📝 ملاحظات خاصة", "custom_inst_ph": "مثال: أسقف عالية، بالقرب من المترو...", "btn": "🚀 إنشاء أصول تسويقية شاملة", "upload_label": "📸 ضع الصور هنا",
-        "result": "💎 معاينة تنفيذية", "loading": "جاري بناء منظومتك التسويقية...", "empty": "في انتظار الصور لبدء التحليل العصبي.", "download": "📥 تصدير TXT", "save_btn": "💾 حفظ التغييرات", "saved_msg": "✅ تم الحفظ!", "error": "خطأ:",
-        "tab_main": "📝 الإعلان الرئيسي", "tab_social": "📱 باقة التواصل", "tab_video": "🎬 سيناريوهات الفيديو", "tab_tech": "⚙️ تفاصيل", "label_main": "نص التسويق", "label_social": "محتوى التواصل", "label_video": "سيناريو الفيديو", "label_tech": "المواصفات التقنية"
+        "custom_inst": "📝 ملاحظات خاصة", "custom_inst_ph": "مثال: أسقف عالية، بالقرب من المترو...", "btn": "🚀 إنشاء أصول تسويقية متكاملة", "upload_label": "📸 ضع الصور هنا",
+        "result": "💎 معاينة تنفيذية", "loading": "جاري تجهيز منظومتك التسويقية الفاخرة...", "empty": "في انتظار الصور لبدء التحليل المهني.", "download": "📥 تصدير TXT", "save_btn": "💾 حفظ التغييرات", "saved_msg": "✅ تم الحفظ!", "error": "خطأ:",
+        "tab_main": "📝 إعلان مميز", "tab_social": "📱 باقة التواصل", "tab_video": "🎬 سيناريوهات الفيديو", "tab_tech": "⚙️ تفاصيل", "label_main": "نص المبيعات", "label_social": "محتوى التواصل", "label_video": "سيناريو الفيديو", "label_tech": "المواصفات الفنية"
     }
 } 
 
@@ -165,7 +165,7 @@ with st.sidebar:
     st.session_state.tone = st.selectbox(t["tone"], t["tones"], index=current_tone_idx) 
     st.session_state.custom_inst = st.text_area(t["custom_inst"], value=st.session_state.custom_inst, placeholder=t["custom_inst_ph"]) 
 
-# --- ANA EKRAN (PROFESYONEL KARŞILAMA) --- 
+# --- ANA EKRAN (GÜÇLÜ & PAZARLAMA ODAKLI) --- 
 st.markdown(f"<h1>🏢 {t['title']}</h1>", unsafe_allow_html=True) 
 st.markdown(f"<p style='text-align:center; color:#0f172a; font-weight:700; font-size:1.4rem; letter-spacing:0.5px; margin-bottom:5px;'>{t['service_desc']}</p>", unsafe_allow_html=True) 
 st.markdown(f"<div style='text-align:center; color:#64748b; font-size:1.1rem; max-width:850px; margin: 0 auto 2rem auto; line-height:1.5;'>{t['subtitle']}</div>", unsafe_allow_html=True) 
@@ -184,7 +184,7 @@ if uploaded_files:
                              f"Target Language: {st.session_state.target_lang_input}. "
                              f"Property: {st.session_state.prop_type} at {st.session_state.location}. "
                              f"Strategy: {st.session_state.tone}. "
-                             f"Structure: Split response using ## SECTION_1 (Marketing Listing), ## SECTION_2 (Social Media Kit - Captions & Hashtags), ## SECTION_3 (Cinematic Video Script), ## SECTION_4 (Technical Specifications & Features).")
+                             f"Structure: Split response using ## SECTION_1 (Main Listing), ## SECTION_2 (Social Media Kit - Captions & Hashtags), ## SECTION_3 (Cinematic Video Script), ## SECTION_4 (Technical Specifications).")
             try: 
                 response = model.generate_content([expert_prompt] + images_for_ai) 
                 st.session_state.uretilen_ilan = response.text 
